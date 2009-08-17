@@ -34,6 +34,25 @@ namespace nothinbutdotnetprep.collections
             this.list_of_movies = list_of_movies;
         }
 
+        public IEnumerable<Movie> sort_movies(IComparer<Movie> by_sort_method) {
+
+            var lst = new List<Movie>(list_of_movies);
+            lst.Sort(by_sort_method);
+
+            foreach(var movie in lst)
+            {
+                yield return movie;
+            }
+        }
+
+        public IEnumerable<Movie> filter_movies(Predicate<Movie> by_specificaiton) {
+
+            foreach (var m in this.list_of_movies)
+            {
+                if (by_specificaiton(m)) yield return m;
+            }
+        }
+
         public IEnumerable<Movie> all_movies()
         {
             return list_of_movies.one_at_a_time();
@@ -57,7 +76,10 @@ namespace nothinbutdotnetprep.collections
 
         public IEnumerable<Movie> all_movies_published_by_pixar()
         {
-            throw new NotImplementedException();
+            foreach (var m in this.list_of_movies) {
+                if (m.production_studio.Equals(ProductionStudio.Pixar))
+                    yield return m;
+            }
         }
 
         public IEnumerable<Movie> all_movies_published_by_pixar_or_disney()
@@ -109,5 +131,6 @@ namespace nothinbutdotnetprep.collections
         {
             throw new NotImplementedException();
         }
+
     }
 }

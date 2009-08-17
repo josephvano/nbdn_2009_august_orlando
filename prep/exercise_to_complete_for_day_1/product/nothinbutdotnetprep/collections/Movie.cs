@@ -14,7 +14,23 @@ namespace nothinbutdotnetprep.collections
 
         public bool Equals(Movie other)
         {
-            return other == null ? false : other.title == this.title;
+            if (other == null) return false;
+            return ReferenceEquals(this,other) || is_equal_to(other);
+        }
+
+        bool is_equal_to(Movie other)
+        {
+            return title.Equals(other.title);
+        }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as Movie);
+        }
+
+        public override int GetHashCode()
+        {
+            return title.GetHashCode();
         }
     }
 }

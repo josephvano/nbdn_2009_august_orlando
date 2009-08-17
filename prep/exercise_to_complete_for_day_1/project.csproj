@@ -57,15 +57,6 @@
     <None Include="commit.bat" />
     <None Include="local_properties.rb.customize" />
     <None Include="open.bat" />
-    <None Include="product\config\app.config.vista.template" />
-    <None Include="product\config\app.config.xp.template" />
-    <None Include="product\config\hibernate.cfg.xml.template" />
-    <None Include="product\config\log4net.config.xml.template" />
-    <None Include="product\sql\data\001\001_populate_foo.sql.template" />
-    <None Include="product\sql\ddl\001\001_db.sql.template" />
-    <None Include="product\sql\ddl\001\002_security.sql.template" />
-    <None Include="product\sql\ddl\001\003_asp_login.sql.template.ignore" />
-    <None Include="product\sql\ddl\001\004_create_table_foo.sql.template" />
     <None Include="project.rb" />
     <None Include="rakefile.rb" />
     <None Include="up.bat" />

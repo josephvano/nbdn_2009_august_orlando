@@ -79,10 +79,12 @@ namespace nothinbutdotnetprep.tests
                 number_of_movies = sut.all_movies().Count();
             };
 
+
             it should_return_the_number_of_all_movies_in_the_library = () =>
             {
                 number_of_movies.should_be_equal_to(2);
             };
+
         }
 
         [Concern(typeof (MovieLibrary))]

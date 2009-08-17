@@ -1,22 +1,53 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using nothinbutdotnetprep.infrastructure.extensions;
 
 namespace nothinbutdotnetprep.collections
 {
+    public class EnumerableList<T> : IEnumerable<T>
+    {
+        IList<T> items;
+
+        public EnumerableList(IList<T> items)
+        {
+            this.items = items;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return items.GetEnumerator();
+        }
+    }
+
     public class MovieLibrary
     {
+        IList<Movie> list_of_movies;
+
         public MovieLibrary(IList<Movie> list_of_movies)
         {
+            this.list_of_movies = list_of_movies;
         }
 
         public IEnumerable<Movie> all_movies()
         {
-            throw new NotImplementedException();
+            return list_of_movies.one_at_a_time();
         }
 
         public void add(Movie movie)
         {
-            throw new NotImplementedException();
+            if (already_contains(movie)) return;
+            list_of_movies.Add(movie);
+        }
+
+        bool already_contains(Movie movie)
+        {
+            return list_of_movies.Contains(movie);
         }
 
         public IEnumerable<Movie> sort_all_movies_by_title_descending()

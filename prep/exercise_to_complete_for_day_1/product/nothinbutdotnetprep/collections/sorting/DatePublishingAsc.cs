@@ -1,5 +1,3 @@
-using System;
-
 namespace nothinbutdotnetprep.collections.sorting
 {
     public class DatePublishingAsc : MovieComparer

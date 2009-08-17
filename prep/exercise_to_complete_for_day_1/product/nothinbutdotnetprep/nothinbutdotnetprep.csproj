@@ -38,7 +38,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="collections\IsPublishedAfter.cs" />
+    <Compile Include="infrastructure\searching\AndCriteria.cs" />
+    <Compile Include="infrastructure\searching\AnonymousCriteria.cs" />
+    <Compile Include="infrastructure\searching\BinaryCriteria.cs" />
+    <Compile Include="infrastructure\searching\Criteria.cs" />
     <Compile Include="collections\Genre.cs" />
+    <Compile Include="collections\IsPublishedBy.cs" />
     <Compile Include="collections\Movie.cs" />
     <Compile Include="collections\MovieLibrary.cs" />
     <Compile Include="collections\ProductionStudio.cs" />
@@ -49,10 +55,14 @@
     <Compile Include="collections\sorting\TitleAscSort.cs" />
     <Compile Include="collections\sorting\TitleSortDescending.cs" />
     <Compile Include="infrastructure\extensions\CollectionExtensions.cs" />
+    <Compile Include="infrastructure\extensions\EnumerableExtensions.cs" />
     <Compile Include="infrastructure\extensions\Iteration.cs" />
     <Compile Include="infrastructure\extensions\StringExtensions.cs" />
     <Compile Include="infrastructure\extensions\TypeCasting.cs" />
     <Compile Include="infrastructure\extensions\TypeExtensions.cs" />
+    <Compile Include="infrastructure\searching\CriteriaExtensions.cs" />
+    <Compile Include="infrastructure\searching\OrCriteria.cs" />
+    <Compile Include="infrastructure\searching\Where.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

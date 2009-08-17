@@ -1,30 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using nothinbutdotnetprep.infrastructure.extensions;
+using nothinbutdotnetprep.infrastructure.searching;
 
 namespace nothinbutdotnetprep.collections
 {
-    public class EnumerableList<T> : IEnumerable<T>
-    {
-        IList<T> items;
-
-        public EnumerableList(IList<T> items)
-        {
-            this.items = items;
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
-        public IEnumerator<T> GetEnumerator()
-        {
-            return items.GetEnumerator();
-        }
-    }
-
     public class MovieLibrary
     {
         IList<Movie> list_of_movies;
@@ -34,23 +14,15 @@ namespace nothinbutdotnetprep.collections
             this.list_of_movies = list_of_movies;
         }
 
-        public IEnumerable<Movie> sort_movies(IComparer<Movie> by_sort_method) {
-
-            var lst = new List<Movie>(list_of_movies);
-            lst.Sort(by_sort_method);
-
-            foreach(var movie in lst)
-            {
-                yield return movie;
-            }
+        public IEnumerable<Movie> sort_movies(IComparer<Movie> comparer)
+        {
+            return list_of_movies.sort_using(comparer);
         }
 
-        public IEnumerable<Movie> filter_movies(Predicate<Movie> by_specificaiton) {
 
-            foreach (var m in this.list_of_movies)
-            {
-                if (by_specificaiton(m)) yield return m;
-            }
+        public IEnumerable<Movie> filter_movies(Predicate<Movie> criteria)
+        {
+            return list_of_movies.all_matching(criteria);
         }
 
         public IEnumerable<Movie> all_movies()
@@ -69,68 +41,16 @@ namespace nothinbutdotnetprep.collections
             return list_of_movies.Contains(movie);
         }
 
-        public IEnumerable<Movie> sort_all_movies_by_title_descending()
+        static public Predicate<Movie> is_published_after(DateTime date)
         {
-            throw new NotImplementedException();
+            return movie => movie.date_published > date;
         }
 
-        public IEnumerable<Movie> all_movies_published_by_pixar()
+        static public Predicate<Movie> is_published_by(ProductionStudio studio)
         {
-            foreach (var m in this.list_of_movies) {
-                if (m.production_studio.Equals(ProductionStudio.Pixar))
-                    yield return m;
-            }
+            return new IsPublishedBy(studio).is_satisfied_by;
         }
-
-        public IEnumerable<Movie> all_movies_published_by_pixar_or_disney()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Movie> sort_all_movies_by_title_ascending()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Movie> sort_all_movies_by_movie_studio_and_year_published()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Movie> all_movies_not_published_by_pixar()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Movie> all_movies_published_after(int year)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Movie> all_movies_published_between_years(int startingYear, int endingYear)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Movie> all_kid_movies()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Movie> all_action_movies()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Movie> sort_all_movies_by_date_published_descending()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Movie> sort_all_movies_by_date_published_ascending()
-        {
-            throw new NotImplementedException();
-        }
-
     }
+}
+
 }

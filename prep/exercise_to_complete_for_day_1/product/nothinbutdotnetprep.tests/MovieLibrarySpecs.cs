@@ -8,6 +8,7 @@ using developwithpassion.bdddoc.core;
 using nothinbutdotnetprep.collections;
 using nothinbutdotnetprep.collections.sorting;
 using nothinbutdotnetprep.infrastructure.extensions;
+using nothinbutdotnetprep.infrastructure.searching;
 
 /* The following set of Contexts (TestFixture) are in place to specify the functionality that you need to complete for the MovieLibrary class.
  * MovieLibrary is an aggregate root for the Movie class. It exposes the ability to search,sort, and iterate over all of the movies that it aggregates.
@@ -108,6 +109,7 @@ namespace nothinbutdotnetprep.tests
 
             it should_receive_a_set_containing_each_movie_in_the_library = () =>
             {
+
                 all_movies.should_only_contain(first_movie, second_movie);
             };
         }
@@ -216,6 +218,9 @@ namespace nothinbutdotnetprep.tests
 
             it should_be_able_to_find_all_movies_published_by_pixar = () =>
             {
+                var criteria = Where<Movie>.has_a(x => x.production_studio)
+                    .equal_to(ProductionStudio.Pixar);
+
                 var results = sut.filter_movies(
                     x => x.production_studio == ProductionStudio.Pixar
                     );
@@ -225,12 +230,26 @@ namespace nothinbutdotnetprep.tests
                 results.should_only_contain(cars, a_bugs_life);
             };
 
+            public static bool should_match2(Movie movie) {
+
+            }
+            public static bool should_match(Movie movie) {
+
+            }
+            it should_filter_items = () =>
+            {
+                var match = Movie.is_published_by_disney();
+
+            };
+
             it should_be_able_to_find_all_movies_published_by_pixar_or_disney = () =>
             {
+                var criteria = Where<Movie>.has_a(x => x.production_studio)
+                                        .equal_to_any(ProductionStudio.Pixar, ProductionStudio.Disney);
                 var results = sut.filter_movies(
-                    x => x.production_studio == ProductionStudio.Pixar ||
+                    new AnonymousCriteria<Movie>(x => x.production_studio == ProductionStudio.Pixar ||
                         x.production_studio == ProductionStudio.Disney
-                    );
+                    ));
                 //sut.all_movies_published_by_pixar_or_disney();
 
                 results.should_only_contain(a_bugs_life, pirates_of_the_carribean, cars);

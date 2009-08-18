@@ -1,7 +1,7 @@
 using System;
 using nothinbutdotnetprep.infrastructure.ranges;
 
-namespace nothinbutdotnetprep.infrastructure.searching
+namespace nothinbutdotnetprep.infrastructure.searching.dsl
 {
     public interface ComparableCriteriaFactory<ItemToFilter, PropertyToFilterOn>  : CriteriaFactory<ItemToFilter,PropertyToFilterOn> where PropertyToFilterOn : IComparable<PropertyToFilterOn>{
 

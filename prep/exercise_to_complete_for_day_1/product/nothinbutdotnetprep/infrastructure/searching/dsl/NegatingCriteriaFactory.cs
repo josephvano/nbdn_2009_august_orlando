@@ -1,4 +1,4 @@
-namespace nothinbutdotnetprep.infrastructure.searching
+namespace nothinbutdotnetprep.infrastructure.searching.dsl
 {
     public class NegatingCriteriaFactory<ItemToFilter, PropertyToFilterOn> :
         CriteriaFactory<ItemToFilter, PropertyToFilterOn>

@@ -8,7 +8,7 @@ using developwithpassion.bdddoc.core;
 using nothinbutdotnetprep.collections;
 using nothinbutdotnetprep.collections.sorting;
 using nothinbutdotnetprep.infrastructure.extensions;
-using nothinbutdotnetprep.infrastructure.searching;
+using nothinbutdotnetprep.infrastructure.searching.dsl;
 using nothinbutdotnetprep.infrastructure.sorting;
 
 /* The following set of Contexts (TestFixture) are in place to specify the functionality that you need to complete for the MovieLibrary class.

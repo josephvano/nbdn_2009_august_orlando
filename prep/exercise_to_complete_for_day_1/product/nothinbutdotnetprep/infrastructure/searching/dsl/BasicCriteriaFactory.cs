@@ -1,6 +1,6 @@
 using System;
 
-namespace nothinbutdotnetprep.infrastructure.searching
+namespace nothinbutdotnetprep.infrastructure.searching.dsl
 {
     public class BasicCriteriaFactory<ItemToFilter,PropertyToFilterOn> : CriteriaFactory<ItemToFilter,PropertyToFilterOn>
     {

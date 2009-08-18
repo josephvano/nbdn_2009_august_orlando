@@ -7,7 +7,6 @@ using developwithpassion.bdd.mbunit.standard.observations;
 using developwithpassion.bdddoc.core;
 using nothinbutdotnetprep.collections;
 using nothinbutdotnetprep.collections.sorting;
-using nothinbutdotnetprep.infrastructure;
 using nothinbutdotnetprep.infrastructure.extensions;
 using nothinbutdotnetprep.infrastructure.searching;
 using nothinbutdotnetprep.infrastructure.sorting;
@@ -56,7 +55,8 @@ namespace nothinbutdotnetprep.tests
 {
     public class MovieLibrarySpecs
     {
-        public abstract class concern : observations_for_a_sut_without_a_contract<MovieLibrary>
+        public abstract class concern :
+            observations_for_a_sut_without_a_contract<MovieLibrary>
         {
             static protected IList<Movie> movie_collection;
 
@@ -111,13 +111,14 @@ namespace nothinbutdotnetprep.tests
 
             it should_receive_a_set_containing_each_movie_in_the_library = () =>
             {
-
                 all_movies.should_only_contain(first_movie, second_movie);
             };
         }
 
         [Concern(typeof (MovieLibrary))]
-        public class when_trying_to_change_the_set_of_movies_returned_by_the_movie_library_to_a_mutable_type : concern
+        public class
+            when_trying_to_change_the_set_of_movies_returned_by_the_movie_library_to_a_mutable_type :
+                concern
         {
             static Movie first_movie;
             static Movie second_movie;
@@ -136,7 +137,8 @@ namespace nothinbutdotnetprep.tests
 
             it should_get_an_invalid_cast_exception = () =>
             {
-                exception_thrown_by_the_sut.should_be_an_instance_of<InvalidCastException>();
+                exception_thrown_by_the_sut.should_be_an_instance_of
+                    <InvalidCastException>();
             };
         }
 
@@ -164,7 +166,8 @@ namespace nothinbutdotnetprep.tests
         }
 
         [Concern(typeof (MovieLibrary))]
-        public class when_adding_an_existing_movie_in_the_collection_again : concern
+        public class when_adding_an_existing_movie_in_the_collection_again :
+            concern
         {
             static Movie movie;
 
@@ -186,7 +189,8 @@ namespace nothinbutdotnetprep.tests
         }
 
         [Concern(typeof (MovieLibrary))]
-        public class when_adding_two_different_copies_of_the_same_movie : concern
+        public class when_adding_two_different_copies_of_the_same_movie :
+            concern
         {
             static Movie another_copy_of_speed_racer;
             static Movie speed_racer;
@@ -210,7 +214,8 @@ namespace nothinbutdotnetprep.tests
         }
 
         [Concern(typeof (MovieLibrary))]
-        public class when_searching_for_movies : searching_and_sorting_concerns_for_movie_library
+        public class when_searching_for_movies :
+            searching_and_sorting_concerns_for_movie_library
         {
             /* Look at the potential method explosion that can start to occur as you start to search on different criteria
              * see if you can apply OCP (Open closed principle) to ensure that you can accomodate all means of searching for
@@ -222,40 +227,41 @@ namespace nothinbutdotnetprep.tests
             {
                 //sut.all_movies_published_by_pixar();
 
-//                results.should_only_contain(cars, a_bugs_life);
+                //                results.should_only_contain(cars, a_bugs_life);
             };
 
-            public static bool should_match2(Movie movie) {
+            static public bool should_match2(Movie movie)
+            {
                 throw new NotImplementedException();
             }
-            public static bool should_match(Movie movie) {
+
+            static public bool should_match(Movie movie)
+            {
                 throw new NotImplementedException();
-                while(true)
+                while (true) {}
+            }
+
+            it should_be_able_to_find_all_movies_published_by_pixar_or_disney =
+                () =>
                 {
-                    
-                }
-            }
+                    var criteria = Where<Movie>.has_a(x => x.production_studio).
+                        equal_to_any
+                        (ProductionStudio.Pixar, ProductionStudio.Disney);
+                    var results = sut.filter_movies(criteria);
 
-            it should_be_able_to_find_all_movies_published_by_pixar_or_disney = () =>
-            {
-                var criteria = Where<Movie>.has_a(x => x.production_studio).equal_to_any
-                    (ProductionStudio.Pixar, ProductionStudio.Disney);
-                var results = sut.filter_movies(criteria);
+                    results.should_only_contain(a_bugs_life,
+                                                pirates_of_the_carribean, cars);
+                };
 
-                results.should_only_contain(a_bugs_life, pirates_of_the_carribean, cars);
-            };
+            it should_be_able_to_find_all_movies_not_published_by_pixar =
+                () => {};
 
-            it should_be_able_to_find_all_movies_not_published_by_pixar = () =>
-            {
-            };
+            it should_be_able_to_find_all_movies_published_after_a_certain_year
+                = () => {};
 
-            it should_be_able_to_find_all_movies_published_after_a_certain_year = () =>
-            {
-            };
-
-            it should_be_able_to_find_all_movies_published_between_a_certain_range_of_years = () =>
-            {
-            };
+            it
+                should_be_able_to_find_all_movies_published_between_a_certain_range_of_years
+                    = () => {};
 
             it should_be_able_to_find_all_kid_movies = () =>
             {
@@ -274,12 +280,15 @@ namespace nothinbutdotnetprep.tests
                 //var results = sut.all_action_movies();
                 var results = sut.filter_movies(criteria);
 
-                results.should_only_contain(indiana_jones_and_the_temple_of_doom, pirates_of_the_carribean);
+                results.should_only_contain(
+                    indiana_jones_and_the_temple_of_doom,
+                    pirates_of_the_carribean);
             };
         }
 
         [Concern(typeof (MovieLibrary))]
-        public class when_sorting_movies : searching_and_sorting_concerns_for_movie_library
+        public class when_sorting_movies :
+            searching_and_sorting_concerns_for_movie_library
         {
             /* Look at the potential method explosion that can start to occur as you start to sort on different criteria
              * see if you can apply OCP (Open closed principle) to ensure that you can accomodate all means of sorting for
@@ -288,12 +297,14 @@ namespace nothinbutdotnetprep.tests
 
             it should_be_able_to_sort_all_movies_by_title_descending = () =>
             {
-
                 var results = sut.all_movies().sort_using(
-                    Sort<Movie>.by(x => x.title,SortDirections.descending)
+                    Sort<Movie>.by(x => x.title, SortDirections.descending)
                     );
-                results.should_only_contain_in_order(theres_something_about_mary, the_ring, shrek, pirates_of_the_carribean, indiana_jones_and_the_temple_of_doom,
-                                                     cars, a_bugs_life);
+                results.should_only_contain_in_order(
+                    theres_something_about_mary, the_ring, shrek,
+                    pirates_of_the_carribean,
+                    indiana_jones_and_the_temple_of_doom,
+                    cars, a_bugs_life);
             };
 
             it should_be_able_to_sort_all_movies_by_title_ascending = () =>
@@ -301,49 +312,70 @@ namespace nothinbutdotnetprep.tests
                 var results = sut.all_movies().sort_using(
                     Sort<Movie>.by(x => x.title));
 
-                results.should_only_contain_in_order(a_bugs_life, cars, indiana_jones_and_the_temple_of_doom, pirates_of_the_carribean, shrek, the_ring, theres_something_about_mary);
+                results.should_only_contain_in_order(a_bugs_life, cars,
+                                                     indiana_jones_and_the_temple_of_doom,
+                                                     pirates_of_the_carribean,
+                                                     shrek, the_ring,
+                                                     theres_something_about_mary);
             };
 
-            it should_be_able_to_sort_all_movies_by_date_published_descending = () =>
-            {
-                var results = sut.all_movies().sort_using(
-                    Sort<Movie>.by(x => x.date_published,SortDirections.descending));
+            it should_be_able_to_sort_all_movies_by_date_published_descending =
+                () =>
+                {
+                    var results = sut.all_movies().sort_using(
+                        Sort<Movie>.by(x => x.date_published,
+                                       SortDirections.descending));
 
-                results.should_only_contain_in_order(theres_something_about_mary, shrek, the_ring, cars, pirates_of_the_carribean, a_bugs_life, indiana_jones_and_the_temple_of_doom);
-            };
+                    results.should_only_contain_in_order(
+                        theres_something_about_mary, shrek, the_ring, cars,
+                        pirates_of_the_carribean, a_bugs_life,
+                        indiana_jones_and_the_temple_of_doom);
+                };
 
-            it should_be_able_to_sort_all_movies_by_date_published_ascending = () =>
-            {
-                var results = sut.sort_movies(new DatePublishingAsc());
+            it should_be_able_to_sort_all_movies_by_date_published_ascending =
+                () =>
+                {
+                    var results =
+                        sut.sort_movies(Sort<Movie>.by(x => x.date_published));
 
-                results.should_only_contain_in_order(indiana_jones_and_the_temple_of_doom, a_bugs_life, pirates_of_the_carribean, cars, the_ring, shrek, theres_something_about_mary);
-            };
+                    results.should_only_contain_in_order(
+                        indiana_jones_and_the_temple_of_doom, a_bugs_life,
+                        pirates_of_the_carribean, cars, the_ring, shrek,
+                        theres_something_about_mary);
+                };
 
-            it should_be_able_to_sort_all_movies_by_studio_rating_and_year_published = () =>
-            {
-                //Studio Ratings (highest to lowest)
-                //MGM
-                //Pixar
-                //Dreamworks
-                //Universal
-                //Disney
-                //var results = sut.sort_all_movies_by_movie_studio_and_year_published();
-                /* should return a set of results 
+            it
+                should_be_able_to_sort_all_movies_by_studio_rating_and_year_published
+                    = () =>
+                    {
+                        //Studio Ratings (highest to lowest)
+                        //MGM
+                        //Pixar
+                        //Dreamworks
+                        //Universal
+                        //Disney
+                        //var results = sut.sort_all_movies_by_movie_studio_and_year_published();
+                        /* should return a set of results 
                  * in the collection sorted by the rating of the production studio (not the movie rating) and year published. for this exercise you need to take the studio ratings
                  * into effect, which means that you first have to sort by movie studio (taking the ranking into account) and then by the
                  * year published. For this test you cannot add any extra properties/fields to either the ProductionStudio or
                  * Movie classes.*/
 
-                var results = sut.all_movies().sort_using(
-                    Sort<Movie>.with(new MovieStudioRatingComparer())
-                        .then_by(x => x.date_published));
+                        var results = sut.all_movies().sort_using(
+                            Sort<Movie>.with(new MovieStudioRatingComparer())
+                                .then_by(x => x.date_published));
 
-                results.should_only_contain_in_order(the_ring, theres_something_about_mary, a_bugs_life, cars, shrek, indiana_jones_and_the_temple_of_doom,
-                                                     pirates_of_the_carribean);
-            };
+                        results.should_only_contain_in_order(the_ring,
+                                                             theres_something_about_mary,
+                                                             a_bugs_life, cars,
+                                                             shrek,
+                                                             indiana_jones_and_the_temple_of_doom,
+                                                             pirates_of_the_carribean);
+                    };
         }
 
-        public abstract class searching_and_sorting_concerns_for_movie_library : concern
+        public abstract class searching_and_sorting_concerns_for_movie_library :
+            concern
         {
             static protected Movie a_bugs_life;
             static protected Movie cars;
@@ -364,10 +396,15 @@ namespace nothinbutdotnetprep.tests
             {
                 indiana_jones_and_the_temple_of_doom = new Movie
                                                        {
-                                                           title = "Indiana Jones And The Temple Of Doom",
-                                                           date_published = new DateTime(1982, 1, 1),
+                                                           title =
+                                                               "Indiana Jones And The Temple Of Doom",
+                                                           date_published =
+                                                               new DateTime(
+                                                               1982, 1, 1),
                                                            genre = Genre.action,
-                                                           production_studio = ProductionStudio.Universal,
+                                                           production_studio =
+                                                               ProductionStudio.
+                                                               Universal,
                                                            rating = 10
                                                        };
                 cars = new Movie
@@ -405,18 +442,24 @@ namespace nothinbutdotnetprep.tests
                               };
                 theres_something_about_mary = new Movie
                                               {
-                                                  title = "There's Something About Mary",
-                                                  date_published = new DateTime(2007, 1, 1),
+                                                  title =
+                                                      "There's Something About Mary",
+                                                  date_published =
+                                                      new DateTime(2007, 1, 1),
                                                   genre = Genre.comedy,
-                                                  production_studio = ProductionStudio.MGM,
+                                                  production_studio =
+                                                      ProductionStudio.MGM,
                                                   rating = 5
                                               };
                 pirates_of_the_carribean = new Movie
                                            {
-                                               title = "Pirates of the Carribean",
-                                               date_published = new DateTime(2003, 1, 1),
+                                               title =
+                                                   "Pirates of the Carribean",
+                                               date_published =
+                                                   new DateTime(2003, 1, 1),
                                                genre = Genre.action,
-                                               production_studio = ProductionStudio.Disney,
+                                               production_studio =
+                                                   ProductionStudio.Disney,
                                                rating = 10
                                            };
 

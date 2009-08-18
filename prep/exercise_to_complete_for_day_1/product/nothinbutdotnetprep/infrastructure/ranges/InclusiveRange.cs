@@ -1,6 +1,6 @@
 using System;
 
-namespace nothinbutdotnetprep.infrastructure
+namespace nothinbutdotnetprep.infrastructure.ranges
 {
     public class InclusiveRange<T> : Range<T> where T : IComparable<T>
     {

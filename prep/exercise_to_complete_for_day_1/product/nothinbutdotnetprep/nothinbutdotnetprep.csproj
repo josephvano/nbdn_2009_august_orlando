@@ -39,9 +39,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="collections\IsPublishedAfter.cs" />
-    <Compile Include="infrastructure\InclusiveRange.cs" />
-    <Compile Include="infrastructure\Range.cs" />
-    <Compile Include="infrastructure\RangeWithNoUpperbound.cs" />
+    <Compile Include="infrastructure\ranges\InclusiveRange.cs" />
+    <Compile Include="infrastructure\ranges\Range.cs" />
+    <Compile Include="infrastructure\ranges\RangeWithNoUpperbound.cs" />
     <Compile Include="infrastructure\searching\AndCriteria.cs" />
     <Compile Include="infrastructure\searching\AnonymousCriteria.cs" />
     <Compile Include="infrastructure\searching\BasicCriteriaFactory.cs" />
@@ -55,12 +55,7 @@
     <Compile Include="collections\Movie.cs" />
     <Compile Include="collections\MovieLibrary.cs" />
     <Compile Include="collections\ProductionStudio.cs" />
-    <Compile Include="collections\sorting\DatePublishingAsc.cs" />
-    <Compile Include="collections\sorting\DatePublishingDesc.cs" />
-    <Compile Include="collections\sorting\MovieComparer.cs" />
     <Compile Include="collections\sorting\MovieStudioRatingComparer.cs" />
-    <Compile Include="collections\sorting\TitleAscSort.cs" />
-    <Compile Include="collections\sorting\TitleSortDescending.cs" />
     <Compile Include="infrastructure\extensions\CollectionExtensions.cs" />
     <Compile Include="infrastructure\extensions\EnumerableExtensions.cs" />
     <Compile Include="infrastructure\extensions\Iteration.cs" />

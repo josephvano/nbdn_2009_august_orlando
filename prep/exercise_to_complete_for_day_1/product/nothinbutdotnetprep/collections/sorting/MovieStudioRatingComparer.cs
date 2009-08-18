@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace nothinbutdotnetprep.collections.sorting
 {
-    public class MovieStudioRatingComparer : MovieComparer
+    public class MovieStudioRatingComparer : IComparer<Movie>
     {
         IDictionary<ProductionStudio, int> ratings;
 

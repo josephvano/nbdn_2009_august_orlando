@@ -18,7 +18,7 @@ class Project
   end
 
   def self.startup_config
-    @startup_config = "app.config"
+    @startup_config = "web.config"
   end
 
   def self.startup_extension

@@ -39,6 +39,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="collections\IsPublishedAfter.cs" />
+    <Compile Include="events\AlarmClock.cs" />
+    <Compile Include="events\AlarmRangInformation.cs" />
+    <Compile Include="infrastructure\events\OurEventArgs.cs" />
+    <Compile Include="infrastructure\events\OurEventHandler.cs" />
     <Compile Include="infrastructure\ranges\InclusiveRange.cs" />
     <Compile Include="infrastructure\ranges\Range.cs" />
     <Compile Include="infrastructure\ranges\RangeWithNoUpperbound.cs" />

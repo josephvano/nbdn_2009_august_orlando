@@ -244,6 +244,7 @@ namespace nothinbutdotnetprep.tests
             it should_be_able_to_find_all_movies_published_by_pixar_or_disney =
                 () =>
                 {
+                    Where<Movie>.has_value_equal_to(x => x.production_studio, ProductionStudio.Pixar);
                     var criteria = Where<Movie>.has_a(x => x.production_studio).
                         equal_to_any
                         (ProductionStudio.Pixar, ProductionStudio.Disney);

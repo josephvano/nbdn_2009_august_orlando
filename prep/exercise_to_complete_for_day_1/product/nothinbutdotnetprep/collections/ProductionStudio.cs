@@ -1,17 +1,12 @@
-using System;
-
 namespace nothinbutdotnetprep.collections
 {
-    public class ProductionStudio : IEquatable<ProductionStudio>
+    public class ProductionStudio
     {
-        public static readonly ProductionStudio MGM = new ProductionStudio();
-        public static readonly ProductionStudio Paramount = new ProductionStudio();
-        public static readonly ProductionStudio Universal = new ProductionStudio();
-        public static readonly ProductionStudio Pixar = new ProductionStudio();
-        public static readonly ProductionStudio Disney = new ProductionStudio();
-        public static readonly ProductionStudio Dreamworks = new ProductionStudio();
-
-        public bool Equals(ProductionStudio other) { throw new NotImplementedException(); }
-
+        static public ProductionStudio MGM = new ProductionStudio();
+        static public ProductionStudio Paramount = new ProductionStudio();
+        static public ProductionStudio Universal = new ProductionStudio();
+        static public ProductionStudio Pixar = new ProductionStudio();
+        static public ProductionStudio Disney = new ProductionStudio();
+        static public ProductionStudio Dreamworks = new ProductionStudio();
     }
 }

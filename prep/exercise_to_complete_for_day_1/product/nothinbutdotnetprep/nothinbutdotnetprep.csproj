@@ -39,9 +39,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="collections\IsPublishedAfter.cs" />
+    <Compile Include="infrastructure\InclusiveRange.cs" />
+    <Compile Include="infrastructure\Range.cs" />
+    <Compile Include="infrastructure\RangeWithNoUpperbound.cs" />
     <Compile Include="infrastructure\searching\AndCriteria.cs" />
     <Compile Include="infrastructure\searching\AnonymousCriteria.cs" />
+    <Compile Include="infrastructure\searching\BasicCriteriaFactory.cs" />
     <Compile Include="infrastructure\searching\BinaryCriteria.cs" />
+    <Compile Include="infrastructure\searching\ComparableCriteriaFactory.cs" />
+    <Compile Include="infrastructure\searching\CriteriaFactory.cs" />
+    <Compile Include="infrastructure\searching\EqualToCriteria.cs" />
     <Compile Include="infrastructure\searching\ICriteria.cs" />
     <Compile Include="collections\Genre.cs" />
     <Compile Include="collections\IsPublishedBy.cs" />
@@ -51,7 +58,7 @@
     <Compile Include="collections\sorting\DatePublishingAsc.cs" />
     <Compile Include="collections\sorting\DatePublishingDesc.cs" />
     <Compile Include="collections\sorting\MovieComparer.cs" />
-    <Compile Include="collections\sorting\StudioAndYearPublishing.cs" />
+    <Compile Include="collections\sorting\MovieStudioRatingComparer.cs" />
     <Compile Include="collections\sorting\TitleAscSort.cs" />
     <Compile Include="collections\sorting\TitleSortDescending.cs" />
     <Compile Include="infrastructure\extensions\CollectionExtensions.cs" />
@@ -61,8 +68,22 @@
     <Compile Include="infrastructure\extensions\TypeCasting.cs" />
     <Compile Include="infrastructure\extensions\TypeExtensions.cs" />
     <Compile Include="infrastructure\searching\CriteriaExtensions.cs" />
+    <Compile Include="infrastructure\searching\NegatingCriteriaFactory.cs" />
+    <Compile Include="infrastructure\searching\NotCriteria.cs" />
     <Compile Include="infrastructure\searching\OrCriteria.cs" />
+    <Compile Include="infrastructure\searching\PropertyCriteria.cs" />
+    <Compile Include="infrastructure\searching\RangeCriteria.cs" />
     <Compile Include="infrastructure\searching\Where.cs" />
+    <Compile Include="infrastructure\sorting\AscendingSortDirection.cs" />
+    <Compile Include="infrastructure\sorting\ChainedComparer.cs" />
+    <Compile Include="infrastructure\sorting\ComparerBuilder.cs" />
+    <Compile Include="infrastructure\sorting\ComparerExtensions.cs" />
+    <Compile Include="infrastructure\sorting\DescendingSortDirection.cs" />
+    <Compile Include="infrastructure\sorting\PropertyComparer.cs" />
+    <Compile Include="infrastructure\sorting\ReverseComparer.cs" />
+    <Compile Include="infrastructure\sorting\Sort.cs" />
+    <Compile Include="infrastructure\sorting\SortDirection.cs" />
+    <Compile Include="infrastructure\sorting\SortDirections.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

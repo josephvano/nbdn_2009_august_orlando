@@ -2,6 +2,10 @@ namespace nothinbutdotnetprep.infrastructure.searching
 {
     static public class CriteriaExtensions
     {
+        static public Criteria<T> not<T>(this Criteria<T> to_negate)
+        {
+            return new NotCriteria<T>(to_negate);
+        }
         static public Criteria<T> or<T>(this Criteria<T> left_side, Criteria<T> right_side)
         {
             return new OrCriteria<T>(left_side, right_side);

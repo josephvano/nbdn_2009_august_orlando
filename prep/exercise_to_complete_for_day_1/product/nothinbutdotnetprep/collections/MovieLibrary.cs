@@ -22,7 +22,7 @@ namespace nothinbutdotnetprep.collections
 
         public IEnumerable<Movie> filter_movies(Criteria<Movie> criteria)
         {
-            return list_of_movies.all_matching(criteria);
+            return list_of_movies.all_matching(criteria.is_satisfied_by);
         }
 
         public IEnumerable<Movie> all_movies()
@@ -51,6 +51,4 @@ namespace nothinbutdotnetprep.collections
             return new IsPublishedBy(studio).is_satisfied_by;
         }
     }
-}
-
 }

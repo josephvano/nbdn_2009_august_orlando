@@ -7,8 +7,10 @@ using developwithpassion.bdd.mbunit.standard.observations;
 using developwithpassion.bdddoc.core;
 using nothinbutdotnetprep.collections;
 using nothinbutdotnetprep.collections.sorting;
+using nothinbutdotnetprep.infrastructure;
 using nothinbutdotnetprep.infrastructure.extensions;
 using nothinbutdotnetprep.infrastructure.searching;
+using nothinbutdotnetprep.infrastructure.sorting;
 
 /* The following set of Contexts (TestFixture) are in place to specify the functionality that you need to complete for the MovieLibrary class.
  * MovieLibrary is an aggregate root for the Movie class. It exposes the ability to search,sort, and iterate over all of the movies that it aggregates.
@@ -218,31 +220,21 @@ namespace nothinbutdotnetprep.tests
 
             it should_be_able_to_find_all_movies_published_by_pixar = () =>
             {
-                var criteria = Where<Movie>.has_a(x => x.production_studio)
-                    .equal_to(ProductionStudio.Pixar);
-
-                var results = sut.filter_movies( criteria );
-
                 //sut.all_movies_published_by_pixar();
 
-                results.should_only_contain(cars, a_bugs_life);
+//                results.should_only_contain(cars, a_bugs_life);
             };
 
             public static bool should_match2(Movie movie) {
                 throw new NotImplementedException();
             }
             public static bool should_match(Movie movie) {
-                throw new NotImplementedException();:
+                throw new NotImplementedException();
                 while(true)
                 {
                     
                 }
             }
-            it should_filter_items = () =>
-            {
-                var match = Movie.is_published_by_disney();
-
-            };
 
             it should_be_able_to_find_all_movies_published_by_pixar_or_disney = () =>
             {
@@ -255,32 +247,14 @@ namespace nothinbutdotnetprep.tests
 
             it should_be_able_to_find_all_movies_not_published_by_pixar = () =>
             {
-                var criteria = Where<Movie>.has_a(x => x.production_studio)
-                    .not_equal_to(ProductionStudio.Pixar);
-                var results = sut.filter_movies(criteria);
-
-                results.should_not_contain(cars, a_bugs_life);
             };
 
             it should_be_able_to_find_all_movies_published_after_a_certain_year = () =>
             {
-                var criteria = Where<Movie>.has_a(x => x.date_published)
-                    .greater_than(new DateTime(2004,12,31));
-                var results = sut.filter_movies(criteria); //sut.all_movies_published_after(2004);
-
-                results.should_only_contain(the_ring, shrek, theres_something_about_mary);
             };
 
             it should_be_able_to_find_all_movies_published_between_a_certain_range_of_years = () =>
             {
-                var criteria1 = Where<Movie>.has_a(x => x.date_published)
-                    .greater_than(new DateTime(1982,12,31));
-                var criteria2 = Where<Movie>.has_a(x => x.date_published)
-                    .less_than(new DateTime(2003, 1, 1));
-                //var results = sut.all_movies_published_between_years(1982, 2003);
-                var results = sut.filter_movies(criteria1.and(criteria2));
-
-                results.should_only_contain(indiana_jones_and_the_temple_of_doom, a_bugs_life, pirates_of_the_carribean);
             };
 
             it should_be_able_to_find_all_kid_movies = () =>
@@ -314,23 +288,26 @@ namespace nothinbutdotnetprep.tests
 
             it should_be_able_to_sort_all_movies_by_title_descending = () =>
             {
-                //var results = sut.sort_all_movies_by_title_descending();
-                var results = sut.sort_movies(new TitleSortDescending());
+
+                var results = sut.all_movies().sort_using(
+                    Sort<Movie>.by(x => x.title,SortDirections.descending)
+                    );
                 results.should_only_contain_in_order(theres_something_about_mary, the_ring, shrek, pirates_of_the_carribean, indiana_jones_and_the_temple_of_doom,
                                                      cars, a_bugs_life);
             };
 
             it should_be_able_to_sort_all_movies_by_title_ascending = () =>
             {
-                //var results = sut.sort_all_movies_by_title_ascending();
-                var results = sut.sort_movies(new TitleAscSort());
+                var results = sut.all_movies().sort_using(
+                    Sort<Movie>.by(x => x.title));
 
                 results.should_only_contain_in_order(a_bugs_life, cars, indiana_jones_and_the_temple_of_doom, pirates_of_the_carribean, shrek, the_ring, theres_something_about_mary);
             };
 
             it should_be_able_to_sort_all_movies_by_date_published_descending = () =>
             {
-                var results = sut.sort_movies(new DatePublishingDesc());
+                var results = sut.all_movies().sort_using(
+                    Sort<Movie>.by(x => x.date_published,SortDirections.descending));
 
                 results.should_only_contain_in_order(theres_something_about_mary, shrek, the_ring, cars, pirates_of_the_carribean, a_bugs_life, indiana_jones_and_the_temple_of_doom);
             };
@@ -357,7 +334,9 @@ namespace nothinbutdotnetprep.tests
                  * year published. For this test you cannot add any extra properties/fields to either the ProductionStudio or
                  * Movie classes.*/
 
-                var results = sut.sort_movies(new StudioAndYearPublishing());
+                var results = sut.all_movies().sort_using(
+                    Sort<Movie>.with(new MovieStudioRatingComparer())
+                        .then_by(x => x.date_published));
 
                 results.should_only_contain_in_order(the_ring, theres_something_about_mary, a_bugs_life, cars, shrek, indiana_jones_and_the_temple_of_doom,
                                                      pirates_of_the_carribean);

@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="infrastructure\Criteria.cs" />
-    <Compile Include="MessageGenerator.cs" />
     <Compile Include="web\core\ApplicationCommand.cs" />
     <Compile Include="web\core\BasicRequestCommand.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />

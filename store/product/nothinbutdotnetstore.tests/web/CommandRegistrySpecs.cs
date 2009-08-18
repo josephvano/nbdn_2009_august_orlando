@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using System.Linq;
 using developwithpassion.bdd.contexts;
 using developwithpassion.bdd.mbunit;
 using developwithpassion.bdd.mbunit.standard.observations;
 using developwithpassion.bdddoc.core;
 using nothinbutdotnetstore.web.core;
 using Rhino.Mocks;
+using developwithpassion.bdd.core.extensions;
 
 namespace nothinbutdotnetstore.tests.web
 {
@@ -17,11 +19,13 @@ namespace nothinbutdotnetstore.tests.web
             context c = () =>
             {
                 list_of_commands = new List<RequestCommand>();
+                request = an<FrontControllerRequest>();
                 provide_a_basic_sut_constructor_argument
                     <IEnumerable<RequestCommand>>(list_of_commands);
             };
 
             static protected IList<RequestCommand> list_of_commands;
+            static protected FrontControllerRequest request;
         }
 
 
@@ -31,8 +35,6 @@ namespace nothinbutdotnetstore.tests.web
         {
             context c = () =>
             {
-                request = an<FrontControllerRequest>();
-
                 command_that_can_handle_request = an<RequestCommand>();
                 command_that_can_handle_request.Stub(x => x.can_handle(request))
                     .Return(true);
@@ -54,7 +56,27 @@ namespace nothinbutdotnetstore.tests.web
 
             static RequestCommand result;
             static RequestCommand command_that_can_handle_request;
-            static FrontControllerRequest request;
+        }
+
+        public class
+            when_getting_a_command_for_a_request_and_it_does_not_have_the_command :
+                concern
+        {
+            context c = () =>
+            {
+                Enumerable.Range(1,10).each(x => list_of_commands.Add(an<RequestCommand>()));
+            };
+            because b = () =>
+            {
+                result = sut.get_command_that_can_handle(request);
+            };
+
+            it should_return_a_missing_command_to_the_caller = () =>
+            {
+                result.should_be_an_instance_of<MissingRequestCommand>();
+            };
+
+            static RequestCommand result;
         }
     }
 }

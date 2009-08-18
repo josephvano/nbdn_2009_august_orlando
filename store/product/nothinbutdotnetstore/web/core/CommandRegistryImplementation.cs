@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -16,7 +15,9 @@ namespace nothinbutdotnetstore.web.core
         public RequestCommand get_command_that_can_handle(
             FrontControllerRequest request) {
 
-            return commands.First(command => command.can_handle(request));
+            return commands.FirstOrDefault(
+                       command => command.can_handle(request))
+                   ?? new MissingRequestCommand();
         }
     }
 }

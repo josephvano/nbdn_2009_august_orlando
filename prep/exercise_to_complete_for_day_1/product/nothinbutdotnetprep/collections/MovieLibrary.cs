@@ -20,7 +20,7 @@ namespace nothinbutdotnetprep.collections
         }
 
 
-        public IEnumerable<Movie> filter_movies(Predicate<Movie> criteria)
+        public IEnumerable<Movie> filter_movies(Criteria<Movie> criteria)
         {
             return list_of_movies.all_matching(criteria);
         }

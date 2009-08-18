@@ -2,7 +2,8 @@ namespace nothinbutdotnetprep.infrastructure.searching
 {
     public class AndCriteria<T> : BinaryCriteria<T>
     {
-        public AndCriteria(Criteria<T> left_side, Criteria<T> right_side) : base(left_side, right_side)
+        public AndCriteria(Criteria<T> left_side, Criteria<T> right_side) : 
+            base(left_side, right_side)
         {}
 
         public override bool is_satisfied_by(T item)

@@ -221,9 +221,7 @@ namespace nothinbutdotnetprep.tests
                 var criteria = Where<Movie>.has_a(x => x.production_studio)
                     .equal_to(ProductionStudio.Pixar);
 
-                var results = sut.filter_movies(
-                    x => x.production_studio == ProductionStudio.Pixar
-                    );
+                var results = sut.filter_movies( criteria );
 
                 //sut.all_movies_published_by_pixar();
 
@@ -231,10 +229,14 @@ namespace nothinbutdotnetprep.tests
             };
 
             public static bool should_match2(Movie movie) {
-
+                throw new NotImplementedException();
             }
             public static bool should_match(Movie movie) {
-
+                throw new NotImplementedException();:
+                while(true)
+                {
+                    
+                }
             }
             it should_filter_items = () =>
             {
@@ -244,55 +246,59 @@ namespace nothinbutdotnetprep.tests
 
             it should_be_able_to_find_all_movies_published_by_pixar_or_disney = () =>
             {
-                var criteria = Where<Movie>.has_a(x => x.production_studio)
-                                        .equal_to_any(ProductionStudio.Pixar, ProductionStudio.Disney);
-                var results = sut.filter_movies(
-                    new AnonymousCriteria<Movie>(x => x.production_studio == ProductionStudio.Pixar ||
-                        x.production_studio == ProductionStudio.Disney
-                    ));
-                //sut.all_movies_published_by_pixar_or_disney();
+                var criteria = Where<Movie>.has_a(x => x.production_studio).equal_to_any
+                    (ProductionStudio.Pixar, ProductionStudio.Disney);
+                var results = sut.filter_movies(criteria);
 
                 results.should_only_contain(a_bugs_life, pirates_of_the_carribean, cars);
             };
 
             it should_be_able_to_find_all_movies_not_published_by_pixar = () =>
             {
-                var results = sut.filter_movies(x => x.production_studio != ProductionStudio.Pixar);
-                    
-                //sut.all_movies_not_published_by_pixar();
+                var criteria = Where<Movie>.has_a(x => x.production_studio)
+                    .not_equal_to(ProductionStudio.Pixar);
+                var results = sut.filter_movies(criteria);
 
                 results.should_not_contain(cars, a_bugs_life);
             };
 
             it should_be_able_to_find_all_movies_published_after_a_certain_year = () =>
             {
-                var results = sut.filter_movies(x => x.date_published.Year > 2004); //sut.all_movies_published_after(2004);
+                var criteria = Where<Movie>.has_a(x => x.date_published)
+                    .greater_than(new DateTime(2004,12,31));
+                var results = sut.filter_movies(criteria); //sut.all_movies_published_after(2004);
 
                 results.should_only_contain(the_ring, shrek, theres_something_about_mary);
             };
 
             it should_be_able_to_find_all_movies_published_between_a_certain_range_of_years = () =>
             {
+                var criteria1 = Where<Movie>.has_a(x => x.date_published)
+                    .greater_than(new DateTime(1982,12,31));
+                var criteria2 = Where<Movie>.has_a(x => x.date_published)
+                    .less_than(new DateTime(2003, 1, 1));
                 //var results = sut.all_movies_published_between_years(1982, 2003);
-                var results = sut.filter_movies(x => x.date_published.Year >= 1982 &&
-                                                     x.date_published.Year <= 2003
-                    );
+                var results = sut.filter_movies(criteria1.and(criteria2));
 
                 results.should_only_contain(indiana_jones_and_the_temple_of_doom, a_bugs_life, pirates_of_the_carribean);
             };
 
             it should_be_able_to_find_all_kid_movies = () =>
             {
+                var criteria = Where<Movie>.has_a(x => x.genre)
+                    .equal_to(Genre.kids);
                 //var results = sut.all_kid_movies();
-                var results = sut.filter_movies(x => x.genre == Genre.kids);
+                var results = sut.filter_movies(criteria);
 
                 results.should_only_contain(a_bugs_life, shrek, cars);
             };
 
             it should_be_able_to_find_all_action_movies = () =>
             {
+                var criteria = Where<Movie>.has_a(x => x.genre)
+                    .equal_to(Genre.action);
                 //var results = sut.all_action_movies();
-                var results = sut.filter_movies(x => x.genre == Genre.action);
+                var results = sut.filter_movies(criteria);
 
                 results.should_only_contain(indiana_jones_and_the_temple_of_doom, pirates_of_the_carribean);
             };

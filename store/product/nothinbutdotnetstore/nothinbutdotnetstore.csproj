@@ -44,7 +44,8 @@
     <Compile Include="dto\DepartmentItem.cs" />
     <Compile Include="infrastructure\Criteria.cs" />
     <Compile Include="tasks\CatalogTasks.cs" />
-    <Compile Include="web\application\ViewMainDepartment.cs" />
+    <Compile Include="tasks\stubs\StubCatalogTasks.cs" />
+    <Compile Include="web\application\ViewMainDepartments.cs" />
     <Compile Include="web\core\ApplicationCommand.cs" />
     <Compile Include="web\core\BasicRequestCommand.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
@@ -57,6 +58,9 @@
     <Compile Include="web\core\RequestCommand.cs" />
     <Compile Include="web\core\RequestFactory.cs" />
     <Compile Include="web\core\RequestHandler.cs" />
+    <Compile Include="web\core\stubs\StubAnyCriteria.cs" />
+    <Compile Include="web\core\stubs\StubDisplayEngine.cs" />
+    <Compile Include="web\core\stubs\StubRequestFactory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

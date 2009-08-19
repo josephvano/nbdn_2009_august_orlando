@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using developwithpassion.bdd.contexts;
+using developwithpassion.bdd.core.extensions;
 using developwithpassion.bdd.mbunit;
 using developwithpassion.bdd.mbunit.standard.observations;
 using developwithpassion.bdddoc.core;
 using nothinbutdotnetstore.web.core;
 using Rhino.Mocks;
-using developwithpassion.bdd.core.extensions;
 
 namespace nothinbutdotnetstore.tests.web
 {
@@ -58,16 +58,20 @@ namespace nothinbutdotnetstore.tests.web
             static RequestCommand command_that_can_handle_request;
         }
 
+
         public class
             when_getting_a_command_for_a_request_and_it_does_not_have_the_command :
                 concern
         {
             context c = () =>
             {
-                Enumerable.Range(1,10).each(x => list_of_commands.Add(an<RequestCommand>()));
+                Enumerable.Range(1, 10).each(
+                    x => list_of_commands.Add(an<RequestCommand>()));
             };
+
             because b = () =>
             {
+                doing(() => sut.get_command_that_can_handle(request));
                 result = sut.get_command_that_can_handle(request);
             };
 

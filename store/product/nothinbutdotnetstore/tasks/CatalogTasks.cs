@@ -6,7 +6,6 @@ namespace nothinbutdotnetstore.tasks
     public interface CatalogTasks
     {
         IEnumerable<DepartmentItem> get_all_main_departments();
-        IEnumerable<DepartmentItem> get_all_subdepartments_in_department
-            (DepartmentItem main_department);
+        IEnumerable<DepartmentItem> get_all_subdepartments_in(DepartmentItem main_department);
     }
 }

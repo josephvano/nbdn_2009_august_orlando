@@ -1,3 +1,4 @@
+using System;
 using System.Web;
 
 namespace nothinbutdotnetstore.web.core.stubs
@@ -9,6 +10,11 @@ namespace nothinbutdotnetstore.web.core.stubs
             return new StubRequest();
         }
 
-        class StubRequest : FrontControllerRequest {}
+        class StubRequest : FrontControllerRequest {
+            public T map<T>()
+            {
+                return default(T);
+            }
+        }
     }
 }

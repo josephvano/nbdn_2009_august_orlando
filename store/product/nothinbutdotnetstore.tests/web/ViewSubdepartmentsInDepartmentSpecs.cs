@@ -32,9 +32,11 @@ namespace nothinbutdotnetstore.tests.web
                  child_departments = Enumerable.Range(1, 5).Select(
                      department_item => an<DepartmentItem>());
 
-                 parent_department.Stub(x => x.subdepartments)
-                     .Return(child_departments);
-                 catalog_tasks.Stub(x => x.get_all_subdepartments_in_department(parent_department))
+
+                 request.Stub(x => x.map<DepartmentItem>()).Return(
+                     parent_department);
+
+                 catalog_tasks.Stub(x => x.get_all_subdepartments_in(parent_department))
                      .Return(child_departments);
              };
 

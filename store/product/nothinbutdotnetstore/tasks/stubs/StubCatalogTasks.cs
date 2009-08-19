@@ -15,6 +15,6 @@ namespace nothinbutdotnetstore.tasks.stubs
                     new DepartmentItem {name = number.ToString("Department 0")});
         }
 
-        public IEnumerable<DepartmentItem> get_all_subdepartments_in_department(DepartmentItem main_department) { throw new NotImplementedException(); }
+        public IEnumerable<DepartmentItem> get_all_subdepartments_in(DepartmentItem main_department) { throw new NotImplementedException(); }
     }
 }

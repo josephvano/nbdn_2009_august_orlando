@@ -45,31 +45,32 @@
     <Compile Include="infrastructure\Criteria.cs" />
     <Compile Include="tasks\CatalogTasks.cs" />
     <Compile Include="tasks\stubs\StubCatalogTasks.cs" />
+    <Compile Include="tasks\stubs\StubViewRegistry.cs" />
     <Compile Include="web\application\ViewMainDepartments.cs" />
     <Compile Include="web\application\ViewSubdepartmentsInDepartment.cs" />
     <Compile Include="web\core\ApplicationCommand.cs" />
     <Compile Include="web\core\BasicRequestCommand.cs" />
-    <Compile Include="web\core\stubs\StubConfigurationHandler.cs" />
-    <Compile Include="web\core\stubs\StubViewModelFactory.cs" />
-    <Compile Include="web\core\ViewModelFactory.cs" />
+    <Compile Include="web\core\HtmlDisplayEngine.cs" />
+    <Compile Include="web\core\TransferAction.cs" />
+    <Compile Include="web\core\View.cs" />
+    <Compile Include="web\core\ViewFactory.cs" />
+    <Compile Include="web\core\ViewForModel.cs" />
+    <Compile Include="web\core\ViewForModelImplementation.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="web\core\CommandRegistry.cs" />
     <Compile Include="web\core\CommandRegistryImplementation.cs" />
-    <Compile Include="web\core\ConfigurationHandler.cs" />
     <Compile Include="web\core\DisplayEngine.cs" />
     <Compile Include="web\core\FrontController.cs" />
     <Compile Include="web\core\FrontControllerImplementation.cs" />
     <Compile Include="web\core\FrontControllerRequest.cs" />
-    <Compile Include="web\core\HtmlDisplayEngine.cs" />
     <Compile Include="web\core\MissingRequestCommand.cs" />
     <Compile Include="web\core\RequestCommand.cs" />
     <Compile Include="web\core\RequestFactory.cs" />
     <Compile Include="web\core\RequestHandler.cs" />
     <Compile Include="web\core\stubs\StubAnyCriteria.cs" />
-    <Compile Include="web\core\stubs\StubDisplayEngine.cs" />
     <Compile Include="web\core\stubs\StubRequestFactory.cs" />
-    <Compile Include="web\core\ViewModel.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
+    <Compile Include="web\core\ViewRegistry.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

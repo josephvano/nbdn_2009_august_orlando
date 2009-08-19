@@ -1,26 +1,34 @@
 using System.Web;
-using nothinbutdotnetstore.web.core.stubs;
+using System.Web.Compilation;
 
 namespace nothinbutdotnetstore.web.core
 {
     public class HtmlDisplayEngine : DisplayEngine
     {
-        ConfigurationHandler configuration_handler;
-        ViewModelFactory view_model_factory;
-        public HtmlDisplayEngine() : this(new StubConfigurationHandler(), new StubViewModelFactory() ) {}
+        static public TransferAction transfer_action =
+            (handler, preserve) =>
+            HttpContext.Current.Server.Transfer(handler, preserve);
 
-        public HtmlDisplayEngine(ConfigurationHandler configuration_handler, ViewModelFactory view_model_factory)
+        static public ViewFactory view_factory =
+            (path, type) =>
+            BuildManager.CreateInstanceFromVirtualPath(path, type);
+
+
+        public HtmlDisplayEngine(ViewRegistry view_registry)
         {
-            this.configuration_handler = configuration_handler;
-            this.view_model_factory = view_model_factory;
+            this.view_registry = view_registry;
         }
+
+        ViewRegistry view_registry;
 
         public void display<T>(T item)
         {
-            var path = configuration_handler.get_view_path();
-            var model = view_model_factory.create_view_model<T>(path, typeof(ViewModel<T>));
-            model.data = item;
-            HttpContext.Current.Response.Write(model);
+            var view_configuration = view_registry.get_view_information_for<T>();
+            var handler =
+                view_factory(view_configuration.path, view_configuration.type)
+                as ViewForModel<T>;
+            handler.model = item;
+            transfer_action(handler, true);
         }
     }
 }

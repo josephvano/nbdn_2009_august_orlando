@@ -10,7 +10,7 @@ namespace nothinbutdotnetstore.web.application
         DisplayEngine display_engine;
 
         public ViewMainDepartments() : this(new StubCatalogTasks(),
-                                            new HtmlDisplayEngine()) {}
+                                            new HtmlDisplayEngine(new StubViewRegistry())) {}
 
 
         public ViewMainDepartments(CatalogTasks catalogTask,

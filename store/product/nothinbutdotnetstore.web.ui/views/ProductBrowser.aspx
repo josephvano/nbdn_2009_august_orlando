@@ -27,20 +27,20 @@ Inherits="System.Web.UI.Page" MasterPageFile="Store.master" %>
                     <td><input type="text" class="normalTextBox" value="1" /></td>
                     <td>Replace with the price of the product</td>               
                     <td><input type="checkbox" class="normalCheckBox" /></td>
-                    <td><asp:button id="addToCartButton" runat="server" Text="Add To cart"/></td>
+                    <td><asp:Button id="            addToCartButton" runat="server" Text="Add To cart"/></td>
                 </tr>
     						
     	</table>	
 								<table>
 									<tr>
 										<td>
-											<asp:button id="addSelectedItemsToCartButton" runat="server" Text="Add Selected Items To Cart" CssClass="normalButton"
-												Width="184px"></asp:button></td>
+											<asp:Button id="            addSelectedItemsToCartButton" runat="server" Text="Add Selected Items To Cart" CssClass="normalButton"
+												Width="184px"></asp:Button></td>
 										<td>
-											<asp:Button id="goToCartButton" runat="server" Text="Go To Shopping Cart" CssClass="normalButton"></asp:Button></td>
+											<asp:Button id="            goToCartButton" runat="server" Text="Go To Shopping Cart" CssClass="normalButton"></asp:Button></td>
 										<td>
-											<asp:button id="checkoutButton" runat="server" Text="Continue to checkout" CssClass="normalButton"
-												Width="184px"></asp:button></td>
+											<asp:Button id="            checkoutButton" runat="server" Text="Continue to checkout" CssClass="normalButton"
+												Width="184px"></asp:Button></td>
 									</tr>
 								</table>							
 								    

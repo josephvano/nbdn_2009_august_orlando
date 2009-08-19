@@ -15,6 +15,11 @@ namespace nothinbutdotnetstore.web.core.stubs
             {
                 return default(T);
             }
+
+            public string url
+            {
+                get; set;
+            }
         }
     }
 }

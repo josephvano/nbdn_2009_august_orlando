@@ -8,6 +8,8 @@ namespace nothinbutdotnetstore.web.core.stubs
         {
             HttpContext.Current.Items.Add("blah", item);
             HttpContext.Current.Server.Transfer("DepartmentBrowser.aspx");
+
+            //BuildManager.CreateInstanceFromVirtualPath("path", type
         }
     }
 }

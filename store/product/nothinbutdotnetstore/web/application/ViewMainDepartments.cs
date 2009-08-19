@@ -1,7 +1,6 @@
 using nothinbutdotnetstore.tasks;
 using nothinbutdotnetstore.tasks.stubs;
 using nothinbutdotnetstore.web.core;
-using nothinbutdotnetstore.web.core.stubs;
 
 namespace nothinbutdotnetstore.web.application
 {
@@ -11,7 +10,7 @@ namespace nothinbutdotnetstore.web.application
         DisplayEngine display_engine;
 
         public ViewMainDepartments() : this(new StubCatalogTasks(),
-                                            new StubDisplayEngine()) {}
+                                            new HtmlDisplayEngine()) {}
 
 
         public ViewMainDepartments(CatalogTasks catalogTask,

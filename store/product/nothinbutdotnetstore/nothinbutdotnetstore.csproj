@@ -51,6 +51,7 @@
     <Compile Include="web\core\ApplicationCommand.cs" />
     <Compile Include="web\core\BasicRequestCommand.cs" />
     <Compile Include="web\core\HtmlDisplayEngine.cs" />
+    <Compile Include="web\core\HtmlHelper.cs" />
     <Compile Include="web\core\TransferAction.cs" />
     <Compile Include="web\core\View.cs" />
     <Compile Include="web\core\ViewFactory.cs" />

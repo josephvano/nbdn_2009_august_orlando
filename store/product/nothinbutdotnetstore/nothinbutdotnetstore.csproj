@@ -46,6 +46,7 @@
     <Compile Include="tasks\CatalogTasks.cs" />
     <Compile Include="tasks\stubs\StubCatalogTasks.cs" />
     <Compile Include="web\application\ViewMainDepartments.cs" />
+    <Compile Include="web\application\ViewSubdepartmentsInDepartment.cs" />
     <Compile Include="web\core\ApplicationCommand.cs" />
     <Compile Include="web\core\BasicRequestCommand.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />

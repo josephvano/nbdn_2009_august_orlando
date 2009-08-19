@@ -53,4 +53,5 @@ namespace nothinbutdotnetstore.tests.web
             static CatalogTasks catalog_tasks;
         }
     }
+
 }

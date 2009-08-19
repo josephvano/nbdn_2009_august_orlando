@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using nothinbutdotnetstore.dto;
@@ -13,5 +14,7 @@ namespace nothinbutdotnetstore.tasks.stubs
                     number =>
                     new DepartmentItem {name = number.ToString("Department 0")});
         }
+
+        public IEnumerable<DepartmentItem> get_all_subdepartments_in_department(DepartmentItem main_department) { throw new NotImplementedException(); }
     }
 }

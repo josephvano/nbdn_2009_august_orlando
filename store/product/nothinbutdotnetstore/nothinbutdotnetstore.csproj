@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="dto\DepartmentItem.cs" />
     <Compile Include="infrastructure\Criteria.cs" />
+    <Compile Include="infrastructure\EnumerableExtensions.cs" />
     <Compile Include="tasks\CatalogTasks.cs" />
     <Compile Include="tasks\stubs\StubCatalogTasks.cs" />
     <Compile Include="tasks\stubs\StubViewRegistry.cs" />

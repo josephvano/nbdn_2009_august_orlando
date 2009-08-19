@@ -15,9 +15,9 @@ namespace nothinbutdotnetstore.tests.web
     {
         public abstract class concern :
             observations_for_a_sut_with_a_contract<ApplicationCommand,
-                ViewMainDepartments> {}
+                ViewMainDepartment> {}
 
-        [Concern(typeof (ViewMainDepartments))]
+        [Concern(typeof (ViewMainDepartment))]
         public class when_displaying_all_of_the_main_departments_in_the_store :
             concern
         {

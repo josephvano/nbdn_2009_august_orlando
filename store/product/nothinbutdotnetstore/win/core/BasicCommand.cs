@@ -24,7 +24,7 @@ namespace nothinbutdotnetstore.win.core
         public void run() {
         
             file_system.get_directories(path).each(sub_directory => node.Nodes.Add(
-                node_factory.create_from(sub_directory)));
+                node_factory.create_directory_node_from(sub_directory)));
         }
     }
 }

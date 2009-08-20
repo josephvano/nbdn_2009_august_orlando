@@ -4,6 +4,6 @@ namespace nothinbutdotnetstore.win.core
 {
     public interface FileSystemNodeFactory
     {
-        TreeNode create_from(string path);
+        TreeNode create_directory_node_from(string path);
     }
 }

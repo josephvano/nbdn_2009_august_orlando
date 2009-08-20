@@ -88,6 +88,7 @@
     <Compile Include="web\ViewMainDepartmentsSpecs.cs" />
     <Compile Include="web\ViewSubdepartmentsInDepartmentSpecs.cs" />
     <Compile Include="win\FileSystemNodeFactorySpecs.cs" />
+    <Compile Include="win\FileSystemSpecs.cs" />
     <Compile Include="win\PopulateNodeWithDirectoriesCommandSpecs.cs" />
   </ItemGroup>
   <ItemGroup>

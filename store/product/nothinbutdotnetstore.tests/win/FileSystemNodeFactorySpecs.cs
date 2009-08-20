@@ -10,24 +10,29 @@ namespace nothinbutdotnetstore.tests.win
      public class FileSystemNodeFactorySpecs
      {
          public abstract class concern : observations_for_a_sut_with_a_contract<FileSystemNodeFactory,
-                                             FileSystemNodeFactoryImpl>
+                                             FileSystemNodeFactoryImplementation>
          {
         
          }
 
-         [Concern(typeof(FileSystemNodeFactoryImpl))]
+         [Concern(typeof(FileSystemNodeFactoryImplementation))]
          public class when_creating_a_node_from_a_path : concern
          {
              because b = () =>
              {
-                 result = sut.create_from("some path");
+                 result = sut.create_directory_node_from(@"C:\first\users");
              };
 
              it should_create_a_tree_node =
                  () => result.should_be_an_instance_of<TreeNode>();
 
-             it should_set_the_node_text =
-                 () => result.Text.should_be_equal_to(node_text);
+
+             it should_only_set_the_text_to_the_folder_name_of_the_the_path = () =>
+             {
+                result.Text.should_be_equal_to("users"); 
+                
+
+             };
 
              static string node_text;
              static TreeNode result;

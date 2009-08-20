@@ -90,7 +90,9 @@
     <Compile Include="win\core\BasicCommand.cs" />
     <Compile Include="win\core\Command.cs" />
     <Compile Include="win\core\FileSystem.cs" />
+    <Compile Include="win\core\FileSystemImplementation.cs" />
     <Compile Include="win\core\FileSystemNodeFactory.cs" />
+    <Compile Include="win\core\FileSystemNodeFactoryImplementation.cs" />
     <Compile Include="win\core\SimpleDirectoryInfo.cs" />
     <Compile Include="win\core\SimpleDirectoryInfoImpl.cs" />
     <Compile Include="win\core\SimpleFileInfo.cs" />

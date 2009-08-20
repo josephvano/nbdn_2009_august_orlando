@@ -1,0 +1,11 @@
+1. Introduce a logging adapter that can be used to log to the console 
+2. Introduce a logging adapter that can be used to log to log4net
+3. Implement the DepartmentItem mapper that can map a NameValueCollection to a DepartmentItem
+4. Come up with a mechanism for request to command routing
+
+5. Implement auto-wiring for container dependencies
+6. Create an internal dsl for mapping objects to objects
+
+7. Work on the AddItemToShopping cart story
+
+

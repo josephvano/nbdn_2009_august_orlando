@@ -104,9 +104,6 @@
     <Compile Include="win\DriveBrowser.Designer.cs">
       <DependentUpon>DriveBrowser.cs</DependentUpon>
     </Compile>
-    <Compile Include="win\ui\DirectoryTreeNode.cs" />
-    <Compile Include="win\ui\DirectoryTreeNodeImpl.cs" />
-    <Compile Include="win\ui\FileTreeNode.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="win\DriveBrowser.resx">

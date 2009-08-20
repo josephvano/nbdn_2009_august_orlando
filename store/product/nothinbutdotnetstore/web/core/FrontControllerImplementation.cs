@@ -1,14 +1,11 @@
-using System;
-using System.Collections.Specialized;
-using nothinbutdotnetstore.infrastructure;
-
 namespace nothinbutdotnetstore.web.core
 {
     public class FrontControllerImplementation : FrontController
     {
         CommandRegistry command_registry;
 
-        public FrontControllerImplementation() :this(new CommandRegistryImplementation()){}
+        public FrontControllerImplementation()
+            : this(new CommandRegistryImplementation()) {}
 
         public FrontControllerImplementation(CommandRegistry command_registry)
         {

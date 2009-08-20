@@ -6,9 +6,16 @@ namespace nothinbutdotnetstore.infrastructure.containers.basic
 {
     public class BasicContainer : Container
     {
+        IDictionary<Type,Resolver> resolvers;
+
+        public BasicContainer(IDictionary<Type, Resolver> resolvers)
+        {
+            this.resolvers = resolvers;
+        }
+
         public Dependency instance_of<Dependency>()
         {
-            throw new NotImplementedException();
+            return (Dependency) resolvers[typeof (Dependency)].resolve();
         }
 
         public object instance_of(Type dependency_type)

@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using developwithpassion.bdd.contexts;
@@ -6,6 +8,7 @@ using developwithpassion.bdd.mbunit.standard.observations;
 using developwithpassion.bdddoc.core;
 using developwithpassion.commons.core.infrastructure.containers;
 using nothinbutdotnetstore.infrastructure.containers.basic;
+using Rhino.Mocks;
 
 namespace nothinbutdotnetstore.tests.infrastructure
 {
@@ -16,10 +19,18 @@ namespace nothinbutdotnetstore.tests.infrastructure
                 BasicContainer> {}
 
         [Concern(typeof (BasicContainer))]
-        public class when_getting_an_instance_of_a_dependency : concern
+        public class when_getting_an_instance_of_a_dependency_and_there_is_a_resolver_for_that_dependency : concern
         {
             context c = () =>
             {
+                sql_connection = new SqlConnection();
+                connection_resolver = an<Resolver>();
+
+                type_resolvers = new Dictionary<Type, Resolver>();
+                type_resolvers.Add(typeof (IDbConnection), connection_resolver);
+                connection_resolver.Stub(x => x.resolve()).Return(sql_connection);
+
+                provide_a_basic_sut_constructor_argument(type_resolvers);
             };
 
             because b = () =>
@@ -37,6 +48,8 @@ namespace nothinbutdotnetstore.tests.infrastructure
 
             static IDbConnection result;
             static SqlConnection sql_connection;
+            static IDictionary<Type,Resolver> type_resolvers;
+            static Resolver connection_resolver;
         }
     }
 }

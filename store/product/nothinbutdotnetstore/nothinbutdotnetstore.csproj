@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dto\DepartmentItem.cs" />
+    <Compile Include="infrastructure\containers\basic\Resolver.cs" />
     <Compile Include="infrastructure\Criteria.cs" />
     <Compile Include="infrastructure\EnumerableExtensions.cs" />
     <Compile Include="infrastructure\containers\basic\BasicContainer.cs" />

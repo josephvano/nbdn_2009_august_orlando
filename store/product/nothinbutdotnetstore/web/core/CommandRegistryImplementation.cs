@@ -9,8 +9,6 @@ namespace nothinbutdotnetstore.web.core
     {
         IEnumerable<RequestCommand> commands;
 
-        public CommandRegistryImplementation() : this(create_dummy_commands()) {}
-
         static IEnumerable<RequestCommand> create_dummy_commands()
         {
             yield return new BasicRequestCommand(new StubAnyCriteria(),

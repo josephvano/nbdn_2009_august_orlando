@@ -55,6 +55,7 @@
     <Compile Include="infrastructure\containers\basic\BasicContainer.cs" />
     <Compile Include="infrastructure\Mapper.cs" />
     <Compile Include="infrastructure\MapperRegistry.cs" />
+    <Compile Include="tasks\ApplicationStartup.cs" />
     <Compile Include="tasks\CatalogTasks.cs" />
     <Compile Include="tasks\stubs\StubCatalogTasks.cs" />
     <Compile Include="tasks\stubs\StubViewRegistry.cs" />

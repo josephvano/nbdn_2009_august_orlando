@@ -4,10 +4,17 @@ namespace nothinbutdotnetstore.infrastructure.containers.basic
 {
     public class DelegateResolver : Resolver
     {
-        public DelegateResolver(Func) {
+        readonly Func<object> factory;
+
+        public DelegateResolver(Func<object> factory)
+        {
+            this.factory = factory;
         }
 
-        public object resolve() { throw new NotImplementedException(); }
+        public object resolve() {
+
+            return factory();
+        }
     }
 
 }

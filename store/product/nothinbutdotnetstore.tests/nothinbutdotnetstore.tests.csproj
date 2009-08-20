@@ -87,7 +87,6 @@
     <Compile Include="web\RequestHandlerSpecs.cs" />
     <Compile Include="web\ViewMainDepartmentsSpecs.cs" />
     <Compile Include="web\ViewSubdepartmentsInDepartmentSpecs.cs" />
-    <Compile Include="win\AddNodeCommandSpecs.cs" />
     <Compile Include="win\PopulateNodeWithDirectoriesCommandSpecs.cs" />
   </ItemGroup>
   <ItemGroup>

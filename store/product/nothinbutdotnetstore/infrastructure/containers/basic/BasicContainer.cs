@@ -17,7 +17,7 @@ namespace nothinbutdotnetstore.infrastructure.containers.basic
         {
             ensure_resolver_exists_for<Dependency>();
 
-            return (Dependency) resolvers[typeof (Dependency)].resolve();
+                return (Dependency) resolvers[typeof (Dependency)].resolve();
         }
 
         void ensure_resolver_exists_for<T>()

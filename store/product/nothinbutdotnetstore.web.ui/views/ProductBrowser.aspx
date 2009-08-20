@@ -21,7 +21,7 @@ Inherits="System.Web.UI.Page" MasterPageFile="Store.master" %>
 		<!-- for each product in the department -->
                 <tr class="nonShadedRow">                    
                     <td class="ListItem">                    
-                        <a href='Replace with a link to the detail page for the product'>Replace with product name</a>
+                        <a href=''>Replace with product name</a>
                     </td>
                     <td>Replace with product description</td>
                     <td><input type="text" class="normalTextBox" value="1" /></td>

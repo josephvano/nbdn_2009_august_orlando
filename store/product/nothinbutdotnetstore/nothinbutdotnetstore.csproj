@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="dto\DepartmentItem.cs" />
     <Compile Include="infrastructure\containers\basic\Resolver.cs" />
+    <Compile Include="infrastructure\containers\basic\TypeResolutionException.cs" />
     <Compile Include="infrastructure\containers\basic\UnregisteredTypeException.cs" />
     <Compile Include="infrastructure\Criteria.cs" />
     <Compile Include="infrastructure\EnumerableExtensions.cs" />

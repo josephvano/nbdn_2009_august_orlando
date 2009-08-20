@@ -79,5 +79,35 @@ namespace nothinbutdotnetstore.tests.infrastructure
             static SqlConnection sql_connection;
             static Resolver connection_resolver;
         }
+
+        [Concern(typeof (BasicContainer))]
+        public class when_getting_an_instance_of_a_dependency_and_the_resolver_throws_an_exception :
+                concern
+        {
+            context c = () =>
+            {
+                connection_resolver = an<Resolver>();
+                type_resolvers.Add(typeof(IDbConnection), connection_resolver);
+                exception = new TypeResolutionException(connection_resolver);
+                connection_resolver.Stub(x => x.resolve()).Throw(exception);
+            };
+
+            because b = () =>
+            {
+                doing(() => sut.instance_of<IDbConnection>());
+            };
+
+            it should_throw_a_type_resolution_exception =
+                () =>
+                {
+                    exception_thrown_by_the_sut.should_be_an<TypeResolutionException>()
+                        .resolver_throwing_exception.should_be_equal_to(connection_resolver);
+                };
+
+            static IDbConnection result;
+            static SqlConnection sql_connection;
+            static Resolver connection_resolver;
+            static TypeResolutionException exception;
+        }
     }
 }

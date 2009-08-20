@@ -1,14 +1,12 @@
 using System.Collections.Specialized;
 using developwithpassion.bdd.contexts;
+using developwithpassion.bdd.mbunit;
 using developwithpassion.bdd.mbunit.standard.observations;
 using developwithpassion.bdddoc.core;
-using MbUnit.Framework;
 using nothinbutdotnetstore.dto;
 using nothinbutdotnetstore.infrastructure;
 using nothinbutdotnetstore.web.core;
 using Rhino.Mocks;
-using developwithpassion.bdd.mbunit;
-using developwithpassion.bdd;
 
 namespace nothinbutdotnetstore.tests.web
 {
@@ -28,16 +26,16 @@ namespace nothinbutdotnetstore.tests.web
                 mapper = an<Mapper<NameValueCollection, DepartmentItem>>();
                 mapped_item = new DepartmentItem();
 
-                mapper_registry.Stub(x => x.get_mapper_to_map<NameValueCollection, DepartmentItem>()).Return(mapper);
+                mapper_registry.Stub(
+                    x =>
+                    x.get_mapper_to_map<NameValueCollection, DepartmentItem>()).
+                    Return(mapper);
                 mapper.Stub(x => x.map_from(query_string)).Return(mapped_item);
-
             };
 
             because b = () =>
             {
                 result = sut.map<DepartmentItem>();
-
-                
             };
 
 

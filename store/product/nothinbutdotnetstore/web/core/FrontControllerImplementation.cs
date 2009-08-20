@@ -15,11 +15,6 @@ namespace nothinbutdotnetstore.web.core
             this.command_registry = command_registry;
         }
 
-        public FrontControllerImplementation(MapperRegistry mapper_registry, NameValueCollection query_string)
-        {
-            throw new NotImplementedException();
-        }
-
         public void handle(FrontControllerRequest request)
         {
             command_registry.get_command_that_can_handle(request).process(

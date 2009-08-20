@@ -16,7 +16,9 @@ namespace nothinbutdotnetstore.tests.infrastructure
     {
         public abstract class concern :
             observations_for_a_sut_with_a_contract<Container,
-                BasicContainer> {}
+                BasicContainer>
+        {
+        }
 
         [Concern(typeof (BasicContainer))]
         public class when_getting_an_instance_of_a_dependency_and_there_is_a_resolver_for_that_dependency : concern
@@ -39,12 +41,30 @@ namespace nothinbutdotnetstore.tests.infrastructure
             };
 
 
-            it
-                should_return_the_dependency_that_was_resolved_using_the_types_resolver
-                    = () =>
-                    {
-                        result.should_be_equal_to(sql_connection);
-                    };
+            it should_return_the_dependency_that_was_resolved_using_the_types_resolver = 
+                () => result.should_be_equal_to(sql_connection); 
+
+            static IDbConnection result;
+            static SqlConnection sql_connection;
+            static IDictionary<Type,Resolver> type_resolvers;
+            static Resolver connection_resolver;
+        }
+
+        [Concern(typeof (BasicContainer))]
+        public class when_getting_an_instance_of_a_dependency_and_there_is_not_a_resolver_for_the_dependency_type : concern
+        {
+            context c = () =>
+            {
+
+            };
+
+            because b = () =>
+            {
+                doing(() => sut.instance_of<IDbConnection>());
+            };
+
+            it should_throw_an_unregistered_type_exception =
+                () => exception_thrown_by_the_sut.should_be_an<UnregisteredTypeException>();
 
             static IDbConnection result;
             static SqlConnection sql_connection;

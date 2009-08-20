@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Specialized;
+using nothinbutdotnetstore.infrastructure;
+
 namespace nothinbutdotnetstore.web.core
 {
     public class FrontControllerImplementation : FrontController
@@ -9,6 +13,11 @@ namespace nothinbutdotnetstore.web.core
         public FrontControllerImplementation(CommandRegistry command_registry)
         {
             this.command_registry = command_registry;
+        }
+
+        public FrontControllerImplementation(MapperRegistry mapper_registry, NameValueCollection query_string)
+        {
+            throw new NotImplementedException();
         }
 
         public void handle(FrontControllerRequest request)

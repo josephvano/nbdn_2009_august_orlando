@@ -46,11 +46,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dto\DepartmentItem.cs" />
-    <Compile Include="infrastructure\Criteria.cs" />
-    <Compile Include="infrastructure\EnumerableExtensions.cs" />
     <Compile Include="infrastructure\containers\basic\BasicContainer.cs" />
+    <Compile Include="infrastructure\Criteria.cs" />
+<<<<<<< HEAD:store/product/nothinbutdotnetstore/nothinbutdotnetstore.csproj
+    <Compile Include="infrastructure\EnumerableExtensions.cs" />
+=======
     <Compile Include="infrastructure\Mapper.cs" />
     <Compile Include="infrastructure\MapperRegistry.cs" />
+>>>>>>> development:store/product/nothinbutdotnetstore/nothinbutdotnetstore.csproj
     <Compile Include="tasks\CatalogTasks.cs" />
     <Compile Include="tasks\stubs\StubCatalogTasks.cs" />
     <Compile Include="tasks\stubs\StubViewRegistry.cs" />
@@ -60,6 +63,7 @@
     <Compile Include="web\core\BasicRequestCommand.cs" />
     <Compile Include="web\core\FrontControllerRequestImplementation.cs" />
     <Compile Include="web\core\HtmlDisplayEngine.cs" />
+    <Compile Include="web\core\HtmlHelper.cs" />
     <Compile Include="web\core\TransferAction.cs" />
     <Compile Include="web\core\View.cs" />
     <Compile Include="web\core\ViewFactory.cs" />

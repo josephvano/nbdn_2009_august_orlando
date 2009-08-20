@@ -1,0 +1,28 @@
+<%@ MasterType VirtualPath="Store.master" %>
+<%@ Page Language="C#" AutoEventWireup="true" 
+Inherits="nothinbutdotnetstore.web.ui.views.DepartmentBrowser" CodeFile="DepartmentBrowser.aspx.cs" MasterPageFile="Store.master" %>
+<<<<<<< HEAD:store/product/nothinbutdotnetstore.web.ui/views/DepartmentBrowser.aspx
+<%@ Import Namespace="nothinbutdotnetstore.infrastructure"%>
+=======
+<%@ Import Namespace="nothinbutdotnetstore.web.core"%>
+>>>>>>> development:store/product/nothinbutdotnetstore.web.ui/views/DepartmentBrowser.aspx
+<asp:Content ID="content" runat="server" ContentPlaceHolderID="childContentPlaceHolder">
+    <p class="ListHead">Select An Isle</p>
+
+            <table>            
+<<<<<<< HEAD:store/product/nothinbutdotnetstore.web.ui/views/DepartmentBrowser.aspx
+      		    <% this.model.each(department => {%>
+              	<tr class="ListItem">
+=======
+		<!-- for each of the main departments in the store -->
+		    <%
+		        model.list(x=>%>
+        	<tr class="ListItem">
+>>>>>>> development:store/product/nothinbutdotnetstore.web.ui/views/DepartmentBrowser.aspx
+               		 <td>                     
+                    <%=x.name%>                   
+                	</td>
+             	 </tr>        
+           	 <% });%>
+	    </table>            
+</asp:Content>

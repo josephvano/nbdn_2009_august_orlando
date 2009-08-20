@@ -56,7 +56,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="views\DepartmentBrowser.aspx.cs">
       <DependentUpon>DepartmentBrowser.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="views\Store.master.cs">
       <DependentUpon>Store.master</DependentUpon>

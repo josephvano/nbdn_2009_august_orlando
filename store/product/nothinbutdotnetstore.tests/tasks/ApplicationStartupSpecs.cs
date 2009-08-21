@@ -21,7 +21,6 @@ namespace nothinbutdotnetstore.tests.tasks
                 sut.run();
             };
 
-
             it should_be_able_to_access_key_app_services = () =>
             {
                 IOC.get().instance_of<FrontController>().should_not_be_null();

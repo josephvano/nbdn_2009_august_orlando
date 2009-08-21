@@ -4,21 +4,21 @@ namespace nothinbutdotnetstore.tasks.startup.dsl
 {
     public class StartableBuilder
     {
-        public StartableBuilder(StartupCommand command)
+        readonly Type command_type;
+
+        public StartableBuilder(Type command_type)
+        {
+            this.command_type= command_type;
+        }
+
+        public StartableBuilder followed_by<T>() where T : StartupCommand
         {
             throw new NotImplementedException();
         }
 
-        public StartableBuilder followed_by<T>() where T : StartupCommand, new()
+        public void finished_by<T>() where T : StartupCommand
         {
-            var t = new T();
-            return new StartableBuilder();
-        }
-
-        public void finished_by<T>() where T : StartupCommand, new() {
-
-            var t = new T();
-            t.run();
+            throw new NotImplementedException();
         }
     }
 }

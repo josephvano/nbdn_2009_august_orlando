@@ -4,7 +4,7 @@ namespace nothinbutdotnetstore.tasks.startup.dsl
     {
         static public StartableBuilder by<T>() where T : StartupCommand
         {
-            return new StartableBuilder();
+            return new StartableBuilder(typeof(T));
         }
     }
 }

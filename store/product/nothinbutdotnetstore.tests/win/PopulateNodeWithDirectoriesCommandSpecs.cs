@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using developwithpassion.bdd.contexts;
 using developwithpassion.bdd.mbunit;
@@ -73,6 +74,10 @@ namespace nothinbutdotnetstore.tests.win
             {
                 host = new Form();
                 tree = new TreeView();
+
+                var method = typeof(TreeView).GetMethod("OnBeforeExpand",BindingFlags.NonPublic | BindingFlags.Instance);
+                method.Invoke(tree,new object[]{new TreeViewCancelEventArgs())
+                tree.BeforeExpand += (o,e) => e.Node
                 root_node = new TreeNode(@"C:\");
 
                 tree.Nodes.Add(root_node);

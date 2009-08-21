@@ -1,7 +1,7 @@
 using System.Windows.Forms;
-using nothinbutdotnetstore.win.core;
+using nothinbutdotnetstore.infrastructure;
 
-namespace nothinbutdotnetstore.tests.win
+namespace nothinbutdotnetstore.win.core
 {
     public class ButtonCommandBinding
     {

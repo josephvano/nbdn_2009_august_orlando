@@ -5,6 +5,7 @@ using developwithpassion.bdd;
 using developwithpassion.bdd.contexts;
 using developwithpassion.bdd.mbunit.standard.observations;
 using developwithpassion.bdddoc.core;
+using nothinbutdotnetstore.infrastructure;
 using nothinbutdotnetstore.win.core;
 using Rhino.Mocks;
 

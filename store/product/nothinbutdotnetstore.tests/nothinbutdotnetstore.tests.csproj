@@ -76,15 +76,6 @@
     <Compile Include="infrastructure\BasicContainerSpecs.cs" />
     <Compile Include="infrastructure\DelegateResolverSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="spikes\IIinitializer.cs" />
-    <Compile Include="spikes\InitializingFrontController.cs" />
-    <Compile Include="spikes\InitializingLogging.cs" />
-    <Compile Include="spikes\SpikeTest.cs" />
-    <Compile Include="spikes\Start.cs" />
-    <Compile Include="spikes\StartableBuilder.cs" />
-    <Compile Include="spikes\SpikeStartDsl.cs" />
-    <Compile Include="spikes\ToolsInitializer.cs" />
-    <Compile Include="spikes\YetAnotherContainerInitializer.cs" />
     <Compile Include="tasks\ApplicationStartupSpecs.cs" />
     <Compile Include="utility\empty_test_fixture_for_test_driven.cs" />
     <Compile Include="web\FrontControllerRequestSpecs.cs" />
@@ -109,6 +100,9 @@
       <Project>{922EF2FE-820B-4ED5-9D64-7D716E135719}</Project>
       <Name>nothinbutdotnetstore</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="spikes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

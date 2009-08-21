@@ -1,4 +1,5 @@
 using System.Windows.Forms;
+using nothinbutdotnetstore.infrastructure;
 
 namespace nothinbutdotnetstore.win.core
 {

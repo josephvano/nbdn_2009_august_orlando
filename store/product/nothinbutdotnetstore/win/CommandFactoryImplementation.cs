@@ -1,4 +1,5 @@
 using System.Threading;
+using nothinbutdotnetstore.infrastructure;
 using nothinbutdotnetstore.win.core;
 
 namespace nothinbutdotnetstore.win

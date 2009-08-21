@@ -1,4 +1,4 @@
-namespace nothinbutdotnetstore.win.core
+namespace nothinbutdotnetstore.infrastructure
 {
     public interface Command
     {

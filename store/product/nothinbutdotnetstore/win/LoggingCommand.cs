@@ -1,5 +1,5 @@
 using System;
-using nothinbutdotnetstore.win.core;
+using nothinbutdotnetstore.infrastructure;
 
 namespace nothinbutdotnetstore.win
 {

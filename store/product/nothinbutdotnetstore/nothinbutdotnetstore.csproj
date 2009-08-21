@@ -59,6 +59,12 @@
     <Compile Include="infrastructure\MapperRegistry.cs" />
     <Compile Include="tasks\ApplicationStartup.cs" />
     <Compile Include="tasks\CatalogTasks.cs" />
+    <Compile Include="tasks\StartupCommand.cs" />
+    <Compile Include="tasks\startup\InitializeTheContainer.cs" />
+    <Compile Include="tasks\startup\InitializingFrontController.cs" />
+    <Compile Include="tasks\startup\InitializingLogging.cs" />
+    <Compile Include="tasks\startup\dsl\Start.cs" />
+    <Compile Include="tasks\startup\dsl\StartableBuilder.cs" />
     <Compile Include="tasks\stubs\StubCatalogTasks.cs" />
     <Compile Include="tasks\stubs\StubViewRegistry.cs" />
     <Compile Include="web\application\ViewMainDepartments.cs" />
@@ -97,7 +103,7 @@
     <Compile Include="win\core\SecuringCommand.cs" />
     <Compile Include="win\core\ShowContentsOfATextFile.cs" />
     <Compile Include="win\core\PopulateNodeWithDirectoriesCommand.cs" />
-    <Compile Include="win\core\Command.cs" />
+    <Compile Include="infrastructure\Command.cs" />
     <Compile Include="win\core\FileSystem.cs" />
     <Compile Include="win\core\FileSystemImplementation.cs" />
     <Compile Include="win\core\FileSystemNodeFactory.cs" />

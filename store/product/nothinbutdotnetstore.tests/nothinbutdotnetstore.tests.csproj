@@ -87,11 +87,13 @@
     <Compile Include="web\RequestHandlerSpecs.cs" />
     <Compile Include="web\ViewMainDepartmentsSpecs.cs" />
     <Compile Include="web\ViewSubdepartmentsInDepartmentSpecs.cs" />
+    <Compile Include="win\CommandExtensionSpecs.cs" />
     <Compile Include="win\ExpandNodeCommandSpecs.cs" />
     <Compile Include="win\FileSystemNodeFactorySpecs.cs" />
     <Compile Include="win\ExpandingFileSystemNodeFactorySpecs.cs" />
     <Compile Include="win\FileSystemSpecs.cs" />
     <Compile Include="win\PopulateNodeWithDirectoriesCommandSpecs.cs" />
+    <Compile Include="win\SecuringCommandSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\nothinbutdotnetstore\nothinbutdotnetstore.csproj">

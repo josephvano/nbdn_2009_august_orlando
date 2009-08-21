@@ -87,9 +87,19 @@
     <Compile Include="web\core\stubs\StubAnyCriteria.cs" />
     <Compile Include="web\core\stubs\StubRequestFactory.cs" />
     <Compile Include="web\core\ViewRegistry.cs" />
+    <Compile Include="win\CommandFactory.cs" />
+    <Compile Include="win\CommandFactoryImplementation.cs" />
+    <Compile Include="win\core\ButtonCommandBinding.cs" />
     <Compile Include="win\core\CommandGeneratingFileSystemNodeFactory.cs" />
     <Compile Include="win\core\ExpandingNodeCommandFactory.cs" />
     <Compile Include="win\core\ExpandNodeCommand.cs" />
+<<<<<<< HEAD:store/product/nothinbutdotnetstore/nothinbutdotnetstore.csproj
+=======
+    <Compile Include="win\core\DoesNotHaveOInUserName.cs" />
+    <Compile Include="win\core\SecuringCommand.cs" />
+    <Compile Include="win\core\ShowContentsOfATextFile.cs" />
+    <Compile Include="win\core\PlaceholderNodeCommand.cs" />
+>>>>>>> development:store/product/nothinbutdotnetstore/nothinbutdotnetstore.csproj
     <Compile Include="win\core\PopulateNodeWithDirectoriesCommand.cs" />
     <Compile Include="win\core\Command.cs" />
     <Compile Include="win\core\FileSystem.cs" />
@@ -100,6 +110,7 @@
     <Compile Include="win\core\SimpleDirectoryInfoImpl.cs" />
     <Compile Include="win\core\SimpleFileInfo.cs" />
     <Compile Include="win\core\SimpleFileInfoImpl.cs" />
+    <Compile Include="win\core\UIExtensions.cs" />
     <Compile Include="win\core\VisitorAction.cs" />
     <Compile Include="win\DriveBrowser.cs">
       <SubType>Form</SubType>
@@ -107,6 +118,8 @@
     <Compile Include="win\DriveBrowser.Designer.cs">
       <DependentUpon>DriveBrowser.cs</DependentUpon>
     </Compile>
+    <Compile Include="win\LoggingCommand.cs" />
+    <Compile Include="win\OurPrincipal.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="win\DriveBrowser.resx">

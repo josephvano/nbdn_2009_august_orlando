@@ -1,3 +1,4 @@
+using System.IO;
 using System.Windows.Forms;
 
 namespace nothinbutdotnetstore.win.core
@@ -6,7 +7,7 @@ namespace nothinbutdotnetstore.win.core
     {
         public TreeNode create_directory_node_from(string path)
         {
-            return new TreeNode(path);
+            return new TreeNode(Path.GetFileName(path));
         }
     }
 }

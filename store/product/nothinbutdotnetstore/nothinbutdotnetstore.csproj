@@ -90,7 +90,6 @@
     <Compile Include="win\core\CommandGeneratingFileSystemNodeFactory.cs" />
     <Compile Include="win\core\ExpandingNodeCommandFactory.cs" />
     <Compile Include="win\core\ExpandNodeCommand.cs" />
-    <Compile Include="win\core\PlaceholderNodeCommand.cs" />
     <Compile Include="win\core\PopulateNodeWithDirectoriesCommand.cs" />
     <Compile Include="win\core\Command.cs" />
     <Compile Include="win\core\FileSystem.cs" />

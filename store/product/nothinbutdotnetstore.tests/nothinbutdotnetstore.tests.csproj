@@ -91,7 +91,6 @@
     <Compile Include="win\FileSystemNodeFactorySpecs.cs" />
     <Compile Include="win\ExpandingFileSystemNodeFactorySpecs.cs" />
     <Compile Include="win\FileSystemSpecs.cs" />
-    <Compile Include="win\PlaceholderNodeCommandSpecs.cs" />
     <Compile Include="win\PopulateNodeWithDirectoriesCommandSpecs.cs" />
   </ItemGroup>
   <ItemGroup>

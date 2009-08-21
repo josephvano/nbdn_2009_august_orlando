@@ -83,13 +83,22 @@ namespace nothinbutdotnetstore.tests.win
                 tree.Dock = DockStyle.Fill;
                 tree.Show();
 
-                provide_a_basic_sut_constructor_argument(@"C:\");
-                provide_a_basic_sut_constructor_argument<FileSystem>(
-                    new FileSystemImplementation());
-                provide_a_basic_sut_constructor_argument(root_node);
-                provide_a_basic_sut_constructor_argument<FileSystemNodeFactory>(
-                    new FileSystemNodeFactoryImplementation());
+                file_system = new FileSystemImplementation();
+                lazy_factory = new StubExpandingNodeCommandFactory(file_system);
+                expanding_factory =
+                    new ExpandingFileSystemNodeFactory(
+                        new FileSystemNodeFactoryImplementation(),
+                        lazy_factory, tree);
+                lazy_factory.factory = expanding_factory;
             };
+
+            public override Command create_sut()
+            {
+                return new PopulateNodeWithDirectoriesCommand(root_node,
+                                                              expanding_factory,
+                                                              file_system,
+                                                              @"C:\");
+            }
 
 
             because b = () =>
@@ -104,12 +113,40 @@ namespace nothinbutdotnetstore.tests.win
                     root_node.Nodes.Count.should_be_equal_to(
                         Directory.GetDirectories(@"C:\").Count());
 
-                    host.ShowDialog();
+//                    host.ShowDialog();
                 };
 
             static Form host;
             static TreeView tree;
             static TreeNode root_node;
+            static FileSystemImplementation file_system;
+            static StubExpandingNodeCommandFactory lazy_factory;
+            static ExpandingFileSystemNodeFactory expanding_factory;
+        }
+    }
+
+    class StubExpandingNodeCommandFactory : ExpandingNodeCommandFactory
+    {
+        FileSystem file_system;
+
+        public StubExpandingNodeCommandFactory(FileSystem file_system)
+        {
+            this.file_system = file_system;
+        }
+
+        public FileSystemNodeFactory factory { get; set; }
+
+        public Command create_command(TreeNode node, string path,
+                                      FileSystemNodeFactory
+                                          file_system_node_factory)
+        {
+                        node.Nodes.Add("");
+
+            return new ExpandNodeCommand(node,
+                                         new PopulateNodeWithDirectoriesCommand(
+                                             node,
+                                             factory, file_system,
+                                             path));
         }
     }
 }

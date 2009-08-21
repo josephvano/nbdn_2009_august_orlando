@@ -12,6 +12,9 @@ namespace nothinbutdotnetstore.win.core
             this.current_node = current_node;
             this.populate_command = populate_command;
         }
+
+
+
         public void run()
         {
             current_node.Nodes.Clear();

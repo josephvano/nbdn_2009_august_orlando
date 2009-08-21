@@ -39,7 +39,7 @@ namespace nothinbutdotnetstore.tests.win
                 file_system.Stub(x => x.get_directories(path)).Return(
                     directories);
                 node_factory.Stub(
-                    x => x.create_diectory_node_with_only_file_name(Arg<string>.Is.NotNull)).
+                    x => x.create_directory_node_with_only_file_name(Arg<string>.Is.NotNull)).
                     Return(child_node);
 
                 provide_a_basic_sut_constructor_argument(path);
@@ -75,9 +75,9 @@ namespace nothinbutdotnetstore.tests.win
                 host = new Form();
                 tree = new TreeView();
 
-                var method = typeof(TreeView).GetMethod("OnBeforeExpand",BindingFlags.NonPublic | BindingFlags.Instance);
-                method.Invoke(tree,new object[]{new TreeViewCancelEventArgs())
-                tree.BeforeExpand += (o,e) => e.Node
+                //var method = typeof(TreeView).GetMethod("OnBeforeExpand",BindingFlags.NonPublic | BindingFlags.Instance);
+                //method.Invoke(tree, new object[] {new TreeViewCancelEventArgs());
+                //tree.BeforeExpand += (o,e) => e.Node
                 root_node = new TreeNode(@"C:\");
 
                 tree.Nodes.Add(root_node);

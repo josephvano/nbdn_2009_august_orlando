@@ -22,7 +22,7 @@ namespace nothinbutdotnetstore.tests.win
 
             because b = () =>
             {
-                result = sut.create_diectory_node_with_only_file_name(path);
+                result = sut.create_directory_node_with_only_file_name(path);
             };
 
             it should_create_a_tree_node =

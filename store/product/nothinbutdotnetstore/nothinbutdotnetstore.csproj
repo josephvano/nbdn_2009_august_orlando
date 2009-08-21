@@ -93,13 +93,9 @@
     <Compile Include="win\core\CommandGeneratingFileSystemNodeFactory.cs" />
     <Compile Include="win\core\ExpandingNodeCommandFactory.cs" />
     <Compile Include="win\core\ExpandNodeCommand.cs" />
-<<<<<<< HEAD:store/product/nothinbutdotnetstore/nothinbutdotnetstore.csproj
-=======
     <Compile Include="win\core\DoesNotHaveOInUserName.cs" />
     <Compile Include="win\core\SecuringCommand.cs" />
     <Compile Include="win\core\ShowContentsOfATextFile.cs" />
-    <Compile Include="win\core\PlaceholderNodeCommand.cs" />
->>>>>>> development:store/product/nothinbutdotnetstore/nothinbutdotnetstore.csproj
     <Compile Include="win\core\PopulateNodeWithDirectoriesCommand.cs" />
     <Compile Include="win\core\Command.cs" />
     <Compile Include="win\core\FileSystem.cs" />

@@ -3,6 +3,7 @@
  using developwithpassion.bdd.contexts;
  using developwithpassion.bdd.mbunit.standard.observations;
  using developwithpassion.bdddoc.core;
+ using MbUnit.Framework;
  using nothinbutdotnetstore.win;
 
 namespace nothinbutdotnetstore.tests.win
@@ -15,6 +16,7 @@ namespace nothinbutdotnetstore.tests.win
         
          }
 
+         [Ignore("Only run when you want to show the ui for testing commands")]
          [Concern(typeof(DriveBrowser))]
          public class when_viewing_a_text_file : concern
          {

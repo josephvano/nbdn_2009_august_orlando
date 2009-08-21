@@ -2,6 +2,15 @@ namespace nothinbutdotnetstore.tasks
 {
     public class ApplicationStartup
     {
-        public void run() {}
+        public void run() {
+
+//            Start.by<ConfiguringApplicationLogging>()
+//                 .followed_by<InitializingTheContainer>()
+//                 .followed_by<InitializingTheServiceLayer>()
+//                 .followed_by<InitializingTheFrontController>()
+//                 .followed_by<ConfiguringApplicationRoutes>()
+//                 .finish_by<SomethingElse>();
+
+        }
     }
 }

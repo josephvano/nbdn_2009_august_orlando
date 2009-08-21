@@ -38,7 +38,7 @@ namespace nothinbutdotnetstore.tests.win
                 file_system.Stub(x => x.get_directories(path)).Return(
                     directories);
                 node_factory.Stub(
-                    x => x.create_directory_node_from(Arg<string>.Is.NotNull)).
+                    x => x.create_diectory_node_with_only_file_name(Arg<string>.Is.NotNull)).
                     Return(child_node);
 
                 provide_a_basic_sut_constructor_argument(path);

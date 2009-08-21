@@ -87,6 +87,8 @@
     <Compile Include="web\core\stubs\StubAnyCriteria.cs" />
     <Compile Include="web\core\stubs\StubRequestFactory.cs" />
     <Compile Include="web\core\ViewRegistry.cs" />
+    <Compile Include="win\core\ExpandNodeCommand.cs" />
+    <Compile Include="win\core\PlaceholderNodeCommand.cs" />
     <Compile Include="win\core\PopulateNodeWithDirectoriesCommand.cs" />
     <Compile Include="win\core\Command.cs" />
     <Compile Include="win\core\FileSystem.cs" />

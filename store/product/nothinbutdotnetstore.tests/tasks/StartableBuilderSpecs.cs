@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using developwithpassion.bdd;
 using developwithpassion.bdd.contexts;
-using developwithpassion.bdd.mbunit;
 using developwithpassion.bdd.mbunit.standard.observations;
 using developwithpassion.bdddoc.core;
 using nothinbutdotnetstore.infrastructure;
@@ -21,7 +20,7 @@ namespace nothinbutdotnetstore.tests.tasks
             {
                 commands_to_queue = new List<StartupCommand>();
                 startup_command_factory = the_dependency<StartupCommandFactory>();
-                command_type = typeof(OurCommand);
+                command_type = typeof (OurCommand);
                 provide_a_basic_sut_constructor_argument(command_type);
 
                 first_command = an<StartupCommand>();
@@ -80,9 +79,7 @@ namespace nothinbutdotnetstore.tests.tasks
 
         public class OurCommand : StartupCommand
         {
-            public void run()
-            {
-            }
+            public void run() {}
         }
     }
 }

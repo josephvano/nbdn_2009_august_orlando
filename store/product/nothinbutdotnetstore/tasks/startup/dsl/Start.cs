@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using developwithpassion.commons.core.infrastructure.containers;
 
 namespace nothinbutdotnetstore.tasks.startup.dsl

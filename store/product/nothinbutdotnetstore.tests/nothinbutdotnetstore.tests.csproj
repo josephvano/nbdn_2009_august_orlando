@@ -77,7 +77,12 @@
     <Compile Include="infrastructure\DelegateResolverSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tasks\ApplicationStartupSpecs.cs" />
+    <Compile Include="utility\conventions\ConventionExtensions.cs" />
+    <Compile Include="utility\conventions\ApplicationConvention.cs" />
+    <Compile Include="utility\conventions\EnsureAllApplicationConventionsAreBeingFollowed.cs" />
     <Compile Include="tasks\StartableBuilderSpecs.cs" />
+    <Compile Include="utility\conventions\FollowsStartupCommandConvention.cs" />
+    <Compile Include="utility\conventions\IsAnApplicationConvention.cs" />
     <Compile Include="utility\empty_test_fixture_for_test_driven.cs" />
     <Compile Include="web\FrontControllerRequestSpecs.cs" />
     <Compile Include="utility\ObjectMother.cs" />

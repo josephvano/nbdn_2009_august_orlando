@@ -10,12 +10,7 @@ namespace nothinbutdotnetstore.tasks.startup.dsl
         StartupCommandFactory command_factory;
         Command composite_command;
         Dictionary<Type, Resolver> resolvers;
-        int command_count;
 
-        public int number_of_commands_to_run
-        {
-            get { return command_count; }
-        }
 
         public StartableBuilder(Type command_type, StartupCommandFactory command_factory)
         {
@@ -46,8 +41,8 @@ namespace nothinbutdotnetstore.tasks.startup.dsl
 
         private class CompositeCommand : Command
         {
-            readonly Command first;
-            readonly Command second;
+            Command first;
+            Command second;
 
             public CompositeCommand(Command first, Command second)
             {

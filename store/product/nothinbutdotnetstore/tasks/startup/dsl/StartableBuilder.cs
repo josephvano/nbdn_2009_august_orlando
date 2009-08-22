@@ -26,14 +26,20 @@ namespace nothinbutdotnetstore.tasks.startup.dsl
             return followed_by(typeof (T));
         }
 
-        private StartableBuilder followed_by(Type command_type) {
+        StartableBuilder followed_by(Type command_type)
+        {
             commands.Add(command_factory.create_startup_command(command_type, resolvers));
             return this;
         }
 
         public void finished_by<T>() where T : StartupCommand
         {
-            throw new NotImplementedException();
+            followed_by(typeof (T));
+
+            foreach (var command in commands)
+            {
+                command.run();
+            }
         }
     }
 }

@@ -6,7 +6,12 @@ namespace nothinbutdotnetstore.tasks.startup
 {
     public class InitializingFrontController : StartupCommand
     {
-        public InitializingFrontController(IDictionary<Type,Resolver> resolvers) {}
+        readonly IDictionary<Type, Resolver> resolvers;
+
+        public InitializingFrontController(IDictionary<Type,Resolver> resolvers)
+        {
+            this.resolvers = resolvers;
+        }
 
         public void run()
         {

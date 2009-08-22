@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="documenting\CommandAttribute.cs" />
     <Compile Include="dto\DepartmentItem.cs" />
     <Compile Include="infrastructure\containers\basic\Resolver.cs" />
     <Compile Include="infrastructure\containers\basic\DelegateResolver.cs" />

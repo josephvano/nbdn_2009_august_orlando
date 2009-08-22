@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using nothinbutdotnetstore.infrastructure.containers.basic;
 
 namespace nothinbutdotnetstore.tasks.startup.dsl
 {
@@ -8,19 +9,26 @@ namespace nothinbutdotnetstore.tasks.startup.dsl
         Type command_type;
         StartupCommandFactory command_factory;
         IList<StartupCommand> commands;
+        Dictionary<Type, Resolver> resolvers;
 
-        public StartableBuilder(Type command_type,StartupCommandFactory command_factory, IList<StartupCommand> commands)
+        public StartableBuilder(Type command_type, StartupCommandFactory command_factory, IList<StartupCommand> commands)
         {
-            this.command_type= command_type;
+            resolvers = new Dictionary<Type, Resolver>();
+            this.command_type = command_type;
             this.commands = commands;
             this.command_factory = command_factory;
 
-            commands.Add(command_factory.create_startup_command(command_type));
+            followed_by(command_type);
         }
 
         public StartableBuilder followed_by<T>() where T : StartupCommand
         {
-            throw new NotImplementedException();
+            return followed_by(typeof (T));
+        }
+
+        private StartableBuilder followed_by(Type command_type) {
+            commands.Add(command_factory.create_startup_command(command_type, resolvers));
+            return this;
         }
 
         public void finished_by<T>() where T : StartupCommand

@@ -7,8 +7,7 @@ namespace nothinbutdotnetstore.tasks.startup.dsl
     {
         static public StartableBuilder by<T>() where T : StartupCommand
         {
-            return new StartableBuilder(typeof(T),IOC.get().instance_of<StartupCommandFactory>(),
-                new List<StartupCommand>());
+            return new StartableBuilder(typeof(T), IOC.get().instance_of<StartupCommandFactory>());
         }
     }
 }

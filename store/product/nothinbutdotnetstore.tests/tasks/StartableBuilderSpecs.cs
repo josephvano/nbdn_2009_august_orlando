@@ -19,10 +19,9 @@ namespace nothinbutdotnetstore.tests.tasks
         {
             context c = () =>
             {
-                list_of_commands = new List<StartupCommand>();
+                commands_to_queue = new List<StartupCommand>();
                 startup_command_factory = the_dependency<StartupCommandFactory>();
-                command_type = typeof (OurCommand);
-                provide_a_basic_sut_constructor_argument(list_of_commands);
+                command_type = typeof(OurCommand);
                 provide_a_basic_sut_constructor_argument(command_type);
 
                 first_command = an<StartupCommand>();
@@ -33,53 +32,49 @@ namespace nothinbutdotnetstore.tests.tasks
             };
 
             static protected StartupCommandFactory startup_command_factory;
-            static protected IList<StartupCommand> list_of_commands;
+            static protected IList<StartupCommand> commands_to_queue;
             static Type command_type;
             static protected StartupCommand first_command;
         }
 
 
-        [Concern(typeof (StartableBuilder))]
-        public class when_created_with_an_initial_command_type_that_should_serve_as_the_first_command : concern
-        {
-            it should_place_the_instance_of_the_command_on_the_list_of_commands_to_run = () =>
-            {
-                list_of_commands.should_contain(first_command);
-            };
+        //[Concern(typeof (StartableBuilder))]
+        //public class when_created_with_an_initial_command_type_that_should_serve_as_the_first_command : concern
+        //{
+        //    it should_queue_the_instance_of_the_command_to_run = () =>
+        //    {
+        //        sut.number_of_commands_to_run.should_be_equal_to(1);
+        //    };
 
-            static Type command_type;
-        }
+        //    static Type command_type;
+        //}
 
-        [Concern(typeof (StartableBuilder))]
-        public class when_following_with_another_startup_command : concern
-        {
-            because b = () =>
-            {
-                sut.followed_by<OurCommand>();
-            };
+        //[Concern(typeof (StartableBuilder))]
+        //public class when_following_with_another_startup_command : concern
+        //{
+        //    because b = () =>
+        //    {
+        //        sut.followed_by<OurCommand>();
+        //    };
 
-            it should_append_the_command_to_the_list_of_commands_to_run = () =>
-            {
-                list_of_commands.Count.should_be_equal_to(2);
-            };
-        }
+        //    it should_queue_the_command_to_run = () =>
+        //    {
+        //        sut.number_of_commands_to_run.should_be_equal_to(2);
+        //    };
+        //}
 
         [Concern(typeof (StartableBuilder))]
         public class when_finished_with_another_command : concern
         {
             because b = () =>
             {
+                sut.followed_by<OurCommand>();
                 sut.finished_by<OurCommand>();
             };
 
-            it should_add_the_comand_to_the_list_of_commands_to_run = () =>
+            it should_run_all_queued_commands = () =>
             {
-                list_of_commands.Count.should_be_equal_to(2);
-            };
-
-            it should_run_through_all_the_commands_in_the_list = () =>
-            {
-                list_of_commands.each(x => x.received(y=>y.run()));
+                commands_to_queue.each(x => x.received(y => y.run()));
             };
         }
 

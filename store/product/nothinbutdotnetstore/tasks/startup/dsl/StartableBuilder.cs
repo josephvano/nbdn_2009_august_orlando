@@ -6,7 +6,6 @@ namespace nothinbutdotnetstore.tasks.startup.dsl
 {
     public class StartableBuilder
     {
-        Type command_type;
         StartupCommandFactory command_factory;
         IList<StartupCommand> commands;
         Dictionary<Type, Resolver> resolvers;
@@ -14,7 +13,6 @@ namespace nothinbutdotnetstore.tasks.startup.dsl
         public StartableBuilder(Type command_type, StartupCommandFactory command_factory, IList<StartupCommand> commands)
         {
             resolvers = new Dictionary<Type, Resolver>();
-            this.command_type = command_type;
             this.commands = commands;
             this.command_factory = command_factory;
 

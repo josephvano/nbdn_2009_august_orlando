@@ -33,7 +33,7 @@ namespace nothinbutdotnetstore.tasks.startup.dsl
             return this;
         }
 
-        public void finished_by<T>() where T : StartupCommand
+        public void finish_by<T>() where T : StartupCommand
         {
             followed_by(typeof (T));
             composite_command.run();

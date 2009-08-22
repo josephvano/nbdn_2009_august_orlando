@@ -1,15 +1,17 @@
+using nothinbutdotnetstore.tasks.startup;
+using nothinbutdotnetstore.tasks.startup.dsl;
+
 namespace nothinbutdotnetstore.tasks
 {
     public class ApplicationStartup
     {
         public void run()
         {
-//            Start.by<InitializingTheContainer>()
-//                 .followed_by<InitializingTheContainer>()
-//                 .followed_by<InitializingTheServiceLayer>()
-//                 .followed_by<InitializingTheFrontController>()
-//                 .followed_by<ConfiguringApplicationRoutes>()
-//                 .finish_by<SomethingElse>();
+            Start.by<InitializeTheContainer>()
+                 .followed_by<InitializeTheServiceLayer>()
+                 .finish_by<InitializingFrontController>();
+
+//            Start.by_loading_pipeline_from("startup_commands.txt");
         }
     }
 }

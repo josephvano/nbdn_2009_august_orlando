@@ -1,24 +1,22 @@
 using System;
 using System.Collections.Generic;
-using developwithpassion.commons.core.infrastructure.containers;
-using nothinbutdotnetstore.documenting;
 using nothinbutdotnetstore.infrastructure.containers.basic;
+using nothinbutdotnetstore.tasks.stubs;
 
 namespace nothinbutdotnetstore.tasks.startup
 {
-    [Command]
-    public class InitializeTheContainer : StartupCommand
+    public class InitializeTheServiceLayer : StartupCommand
     {
         IDictionary<Type, Resolver> resolvers;
 
-        public InitializeTheContainer(IDictionary<Type, Resolver> resolvers)
+        public InitializeTheServiceLayer(IDictionary<Type,Resolver> resolvers)
         {
             this.resolvers = resolvers;
         }
 
         public void run()
         {
-            IOC.initialize_with(new BasicContainer(resolvers));
+            resolvers.Add(typeof(CatalogTasks),new DelegateResolver(() =>new StubCatalogTasks()));
         }
     }
 }

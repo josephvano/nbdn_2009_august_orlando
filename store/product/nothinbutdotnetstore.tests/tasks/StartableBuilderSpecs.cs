@@ -68,7 +68,7 @@ namespace nothinbutdotnetstore.tests.tasks
             because b = () =>
             {
                 sut.followed_by<OurCommand>();
-                sut.finished_by<OurCommand>();
+                sut.finish_by<OurCommand>();
             };
 
             it should_run_all_queued_commands = () =>

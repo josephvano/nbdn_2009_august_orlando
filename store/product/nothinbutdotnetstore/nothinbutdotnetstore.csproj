@@ -64,6 +64,7 @@
     <Compile Include="tasks\StartupCommandFactory.cs" />
     <Compile Include="tasks\startup\dsl\BigUglyComponent.cs" />
     <Compile Include="tasks\startup\InitializeTheContainer.cs" />
+    <Compile Include="tasks\startup\InitializeTheServiceLayer.cs" />
     <Compile Include="tasks\startup\InitializingFrontController.cs" />
     <Compile Include="tasks\startup\dsl\Start.cs" />
     <Compile Include="tasks\startup\dsl\StartableBuilder.cs" />

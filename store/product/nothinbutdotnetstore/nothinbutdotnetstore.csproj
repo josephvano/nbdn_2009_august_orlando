@@ -56,6 +56,7 @@
     <Compile Include="infrastructure\Criteria.cs" />
     <Compile Include="infrastructure\EnumerableExtensions.cs" />
     <Compile Include="infrastructure\containers\basic\BasicContainer.cs" />
+    <Compile Include="infrastructure\logging\basic\TextWriterLogger.cs" />
     <Compile Include="infrastructure\Mapper.cs" />
     <Compile Include="infrastructure\MapperRegistry.cs" />
     <Compile Include="infrastructure\MapperRegistryImplmentation.cs" />

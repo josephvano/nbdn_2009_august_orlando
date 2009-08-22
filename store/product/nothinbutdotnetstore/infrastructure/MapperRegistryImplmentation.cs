@@ -1,4 +1,4 @@
-using System;
+using developwithpassion.commons.core.infrastructure.containers;
 
 namespace nothinbutdotnetstore.infrastructure
 {
@@ -6,7 +6,7 @@ namespace nothinbutdotnetstore.infrastructure
     {
         public Mapper<Input, Output> get_mapper_to_map<Input, Output>()
         {
-            throw new NotImplementedException();
+            return IOC.get().instance_of<Mapper<Input, Output>>();
         }
     }
 }
